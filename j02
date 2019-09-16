@@ -73,6 +73,8 @@ billet_10, billet_5 :=0;
 finproc 
 
 exo 14 ##############################
+
+
 remplaceEtoile(lettre,phrase): chaine;
 x:= longueur(c : chaîne) : entier
 index:=0; 
@@ -86,8 +88,13 @@ resultat: chaine;
  
  tantque index < x faire 
  	 si phrase[index] = lettre alors 
-	 phrase[index]= '*';
-	 sinon si 
+	 resultat[index]= '*';
+	 sinon 
+	 resultat[index]=phrase[index]
+	 finsi
+	 x:= x+1; 
+finfaire 
+	affiche(resultat);  
 	 
 	 
 	 
