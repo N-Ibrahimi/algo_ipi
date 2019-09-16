@@ -112,7 +112,7 @@ phrase[index]:= majuscule(phrase[index])
 	debfonc  	
 	 tantque index < longueur-1 faire 
 		 si phrase[index] = ' ' alors 
-		 	phrase:= majuscule(phrase[index + 1])
+		 	phrase[index+1]:= majuscule(phrase[index + 1])
 		 finsi
 		 index:= index+1; 
 	finfaire 
@@ -125,7 +125,7 @@ exo 16 ##############################
 
 procédure chaine_identique(phrase_01:chanie, phrase_test:chiane) : booléan
 phras_01, phrase_02:chaine;
-index, i :entier; 
+index_01,index_2,i :entier; 
 longueur_01:= longueur(phrase:chaine) : entier
 longueur_02:= longueur(phrase:chaine) : entier
 
@@ -136,16 +136,18 @@ longueur_02:= longueur(phrase:chaine) : entier
  lit(phrase_02); 
  
 	debfonc  
-	index:=0;	 
-	 	tantque index < longueur_test faire 
-			 si phrase_02[index] = phrase_01[index] alors 
+	index_01:=0;
+	index_02:=0;
+	 	tantque index_02 < longueur_2 faire 
+			 si phrase_02[index_02] = phrase_01[index_1] alors 
 			 	i := 1; 
-			 	tantque i < longueur_phrase01 faire
-					si phrase_test[index+i] = phrase[index+i] alors 
-						return vrai 
+			 	tantque i < longueur_01 faire
+					si phrase_02[index_02+i] = phrase_01[index_01+i] alors 
+						i:= i+1; 
 					finsi 
 				finfaire
 			 finsi
+			 index_02:= index+1; 
 		finfaire 
 		retourn faux 
 	finfonc 
