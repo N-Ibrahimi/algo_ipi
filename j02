@@ -103,15 +103,15 @@ phrase: chaine;
 index:entier; 
 longueur:= longueur(phrase:chaine) : entier
 
- affiche('entrez votre phrase ");
- lit(phrase); 
- 
-	debfonc  
-	 index:=0;	
-	 tantque index <= longueur faire 
-	 	 si index=0 alors 
-		 	phrase:= majuscule(phrase[index])
-		 sinon si phrase[index] = ' ' alors 
+affiche('entrez votre phrase ");
+lit(phrase); 
+
+index:=0;
+phrase[index]:= majuscule(phrase[index])
+  
+	debfonc  	
+	 tantque index < longueur-1 faire 
+		 si phrase[index] = ' ' alors 
 		 	phrase:= majuscule(phrase[index + 1])
 		 finsi
 		 index:= index+1; 
@@ -119,8 +119,36 @@ longueur:= longueur(phrase:chaine) : entier
 		affiche(phrase);  
 
 	finfonc 
+	
+	
+exo 16 ##############################	
 
+procédure chaine_identique(phrase_01:chanie, phrase_test:chiane) : booléan
+phras_01, phrase_02:chaine;
+index, i :entier; 
+longueur_01:= longueur(phrase:chaine) : entier
+longueur_test:= longueur(phrase:chaine) : entier
+
+ affiche('entrez votre phrase ");
+ lit(phrase_01); 
  
+ affiche('entrez votre phrase ");
+ lit(phrase_test); 
+ 
+	debfonc  
+	index:=0;	 
+	 	tantque index < longueur_test faire 
+			 si phrase_test[index] = phrase_01[index] alors 
+			 	i := 1; 
+			 	tantque i < longueur_phrase faire
+					si phrase_test[index+i] = phrase[index+i] alors 
+					return vrai 
+					finsi 
+				finfaire
+			 finsi
+		finfaire 
+		retourn faux 
+	finfonc 
 
 
 
