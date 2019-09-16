@@ -111,7 +111,7 @@ longueur:= longueur(phrase:chaine) : entier
 	 tantque index <= longueur faire 
 	 	 si index=0 alors 
 		 	phrase:= majuscule(phrase[index])
-		 sinon si phrase[index] = ' ' 
+		 sinon si phrase[index] = ' ' alors 
 		 	phrase:= majuscule(phrase[index + 1])
 		 finsi
 		 index:= index+1; 
