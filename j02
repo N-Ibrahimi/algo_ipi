@@ -4,19 +4,28 @@ exo 10 ##############################
 Affiche(‘entrez un chiffre svp !) ;
 Lit(x) ;
 
-Y :=1 ;
-Resultat :0 ; 
-Tantque y <= x  faire 
-	Resultat := resultat + y ; 
-	affiche( x + ’+’ + y + ‘est égale à ‘ + resultat) ;
-	Y := y+1
-Finfaire 
+	affiche('entrer un nombre entier positif');
+	tant que x < 0 faire
+		affiche('erreure');
+		lit(x);
+	finfaire; 
+
+y :=1 ;
+Resultat:=0 ; 
+
+	Tantque y <= x  faire 
+		Resultat := resultat + y ; 
+		affiche( x + ’+’ + y + ‘est égale à ‘ + resultat) ;
+		y := y+1
+	Finfaire 
+	
 Affiche (resultat) ;
 
 
 
 exo 11 ##############################
 
+débfonc
 Affiche(‘entrez un chiffre svp !) ;
 Lit(x) ;
 
@@ -24,11 +33,54 @@ Tantque x < 5 || x >10 faire
   si x < 5 alors 
     affiche('petit);
   sinon
-	  affiche('grand');
+    affiche('grand');
   finsi 
-
 lit(x)
 Finfaire 
 
-Affiche ('bravo') ;
+Affiche ('bravo c\'est ' + x) ;
+finfonc 
+
+
+exo 13 ##############################
+
+
+procédure remise de monnais 
+
+remise, beillet_10, beillet_5, monnaie_1: entier; 
+billet_10, billet_5, monnaie_1:=0;
+
+function(pay:entier, coût:entier) 
+
+	remise := payé- coût 
+
+		combien_10:=0; 
+		combien_5:=0; 
+		combien_1:=0; 
+
+		tantque remise > 10 faire 
+			remise := remise-10; 
+			combien_10 = combien_10 +1 
+		finfaire 
+
+		tantque remise > 5
+			remise := remise-5; 
+			combien_5 = combien_5 +1 
+		finfaire 
+
+		affiche ( combien_10 + 'billet de 10e, ' + combien_5 + 'billet de 5e et ' + combien_1 + 'pièce de 1e');
+	finfonc
+
+finproc 
+
+
+
+
+
+
+
+
+
+
+
 
