@@ -127,22 +127,22 @@ procédure chaine_identique(phrase_01:chanie, phrase_test:chiane) : booléan
 phras_01, phrase_02:chaine;
 index, i :entier; 
 longueur_01:= longueur(phrase:chaine) : entier
-longueur_test:= longueur(phrase:chaine) : entier
+longueur_02:= longueur(phrase:chaine) : entier
 
  affiche('entrez votre phrase ");
  lit(phrase_01); 
  
  affiche('entrez votre phrase ");
- lit(phrase_test); 
+ lit(phrase_02); 
  
 	debfonc  
 	index:=0;	 
 	 	tantque index < longueur_test faire 
-			 si phrase_test[index] = phrase_01[index] alors 
+			 si phrase_02[index] = phrase_01[index] alors 
 			 	i := 1; 
-			 	tantque i < longueur_phrase faire
+			 	tantque i < longueur_phrase01 faire
 					si phrase_test[index+i] = phrase[index+i] alors 
-					return vrai 
+						return vrai 
 					finsi 
 				finfaire
 			 finsi
