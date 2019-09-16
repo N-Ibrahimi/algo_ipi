@@ -47,31 +47,68 @@ exo 13 ##############################
 
 procédure remise de monnais 
 
-remise, beillet_10, beillet_5, monnaie_1: entier; 
-billet_10, billet_5, monnaie_1:=0;
+remise, billet_10, billet_5: entier; 
+billet_10, billet_5 :=0;
 
-function(pay:entier, coût:entier) 
-
+	fonction(payé:entier, coût:entier) 
 	remise := payé- coût 
-
-		combien_10:=0; 
-		combien_5:=0; 
-		combien_1:=0; 
-
+	
 		tantque remise > 10 faire 
 			remise := remise-10; 
-			combien_10 = combien_10 +1 
+			combien_10 := combien_10+1 
 		finfaire 
-
+			si combien_10 != 0 alors 
+			affiche( combien_10 + 'de billet de 10e'); 
+			finsi 
+			
 		tantque remise > 5
 			remise := remise-5; 
-			combien_5 = combien_5 +1 
+			combien_5 := combien_5+1 
 		finfaire 
-
-		affiche ( combien_10 + 'billet de 10e, ' + combien_5 + 'billet de 5e et ' + combien_1 + 'pièce de 1e');
+			si combien_5 != 0 alors 
+			affiche( combien_5 + 'de billet de 5e'); 
+			finsi 
+		affiche(remise + 'monnaie de 1e');
 	finfonc
-
 finproc 
+
+exo 14 ##############################
+remplaceEtoile(lettre,phrase): chaine;
+x:= longueur(c : chaîne) : entier
+index:=0; 
+resultat: chaine; 
+
+ affiche('entrez votre phrase ");
+ lit(phrase); 
+ 
+ affiche('entrez le lettre que vous voulez remplacer avec * ");
+ lit(lettre); 
+ 
+ tantque index < x faire 
+ 	 si phrase[index] = lettre alors 
+	 phrase[index]= '*';
+	 sinon si 
+	 
+	 
+	 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
