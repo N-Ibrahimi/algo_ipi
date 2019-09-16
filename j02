@@ -53,7 +53,7 @@ billet_10, billet_5 :=0;
 	fonction(payé:entier, coût:entier) 
 	remise := payé- coût 
 	
-		tantque remise > 10 faire 
+		tantque remise >= 10 faire 
 			remise := remise-10; 
 			combien_10 := combien_10+1 
 		finfaire 
@@ -61,7 +61,7 @@ billet_10, billet_5 :=0;
 			affiche( combien_10 + 'de billet de 10e'); 
 			finsi 
 			
-		tantque remise > 5
+		tantque remise >= 5
 			remise := remise-5; 
 			combien_5 := combien_5+1 
 		finfaire 
@@ -75,10 +75,9 @@ finproc
 exo 14 ##############################
 
 
-remplaceEtoile(lettre,phrase): chaine;
-x:= longueur(c : chaîne) : entier
+remplaceEtoile(lettre,phrase): chaine; 
+longueur:= longueur(phrase:chaine) : entier
 index:=0; 
-resultat: chaine; 
 
  affiche('entrez votre phrase ");
  lit(phrase); 
@@ -86,19 +85,41 @@ resultat: chaine;
  affiche('entrez le lettre que vous voulez remplacer avec * ");
  lit(lettre); 
  
- tantque index < x faire 
- 	 si phrase[index] = lettre alors 
-	 resultat[index]= '*';
-	 sinon 
-	 resultat[index]=phrase[index]
-	 finsi
-	 x:= x+1; 
-finfaire 
-	affiche(resultat);  
-	 
-	 
-	 
+	debfonc  
+	 tantque index <= longueur faire 
+		 si phrase[index] = lettre alors 
+		 phrase[index] := '*';
+		 finsi
+		 index:= index+1; 
+	finfaire 
+		affiche(phrase);  
+
+	finfonc 
+
+exo 15 ##############################	
+
+procédure majuscule 
+phrase: chaine;
+index:entier; 
+longueur:= longueur(phrase:chaine) : entier
+
+ affiche('entrez votre phrase ");
+ lit(phrase); 
  
+	debfonc  
+	 index:=0;	
+	 tantque index <= longueur faire 
+	 	 si index=0 alors 
+		 	phrase:= majuscule(phrase[index])
+		 sinon si phrase[index] = ' ' 
+		 	phrase:= majuscule(phrase[index + 1])
+		 finsi
+		 index:= index+1; 
+	finfaire 
+		affiche(phrase);  
+
+	finfonc 
+
  
 
 
