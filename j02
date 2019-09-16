@@ -1,0 +1,34 @@
+
+exo 10 ##############################
+
+Affiche(‘entrez un chiffre svp !) ;
+Lit(x) ;
+
+Y :=1 ;
+Resultat :0 ; 
+Tantque y <= x  faire 
+	Resultat := resultat + y ; 
+	affiche( x + ’+’ + y + ‘est égale à ‘ + resultat) ;
+	Y := y+1
+Finfaire 
+Affiche (resultat) ;
+
+
+
+exo 11 ##############################
+
+Affiche(‘entrez un chiffre svp !) ;
+Lit(x) ;
+
+Tantque x < 5 || x >10 faire 
+  si x < 5 alors 
+    affiche('petit);
+  sinon
+	  affiche('grand');
+  finsi 
+
+lit(x)
+Finfaire 
+
+Affiche ('bravo') ;
+
