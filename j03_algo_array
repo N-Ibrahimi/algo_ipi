@@ -127,17 +127,17 @@ procédure trié
 
 debpro 
     i,number:entier; 
-    array[]:entier; 
+    array:entier[]; 
    
-    debfon (array[]): booléen 
-    i:=0;
-    tant que i <langueur(array[])-1 faire 
-      si array[i] > array[i+1] 
-      retourn faux
-      finsi 
-      i:=i+1
-      finfaire 
-      retourn vrai 
+    debfon (array): booléen 
+        i:=0;
+        tant que i <langueur(array)-1 faire 
+              si array[i] > array[i+1] 
+              retourn faux
+              finsi 
+          i:=i+1
+          finfaire 
+          retourn vrai 
     finfonc
 finproc 
 
