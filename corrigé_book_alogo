@@ -1,0 +1,3735 @@
+Exercice 2.1
+============
+
+/** La classe Sinus calcule et affiche sur la sortie standard
+ *  le sinus d'une donnée lue sur l'entrée standard
+ */
+import java.io.*;
+
+class Sinus {
+   public static void main (String[] args) throws IOException
+   {
+       // il existe une donnée à lire sur l'entrée standard
+       System.out.println(Math.sin(StdInput.readlnInt()));
+       // la valeur du sinus de l'entier lu est écrite sur la sortie standard
+   } // fin main
+} // fin classe Sinus
+
+
+
+Exercice 2.3
+============
+
+/** La classe Sinus calcule et affiche sur la sortie standard
+ *  le sinus du minimum de 2 réels lus sur l'entrée standard
+ */
+import java.io.*;
+
+class Sinus {
+   public static void main (String[] args) throws IOException
+   {
+       double x, y;
+       // il existe 2 réels à lire sur l'entrée standard
+       x = StdInput.readlnDouble();
+       y = StdInput.readlnDouble();
+       // écrire le sinus du minimul de x et y
+       System.out.println(Math.sin(Math.min(x,y)));
+   }
+} // fin classe Sinus
+
+
+
+Exercice 3.1
+============
+
+0.31 (double)  +273.3 (double)  0.005e+3 (double)              0x10 (valide)
+010 (int)     .389 (double)    15 (short)                     0x5e-4 (invalide)
+33.75 (double) 1.5+2 (invalide) 3,250 (invalide)               .E1 (invalide)
+1234 (int)     3E5 (double)     08 (invalide)                     10e-4 (double)
+0X1a2 (int)    0037 (int)       1e2768 (invalide, dépassement) 0x1A2 (int)
+
+
+
+Exercice 3.2
+============
+
+100  (short) true (boolean)  'a'   (char)   2 (short)
+0x10 (short) .23 (double)    "nom" (String) '2' (char)
+"a" (String) '\u0041' (char) '\n'  (char)   "2" (String)
+
+
+
+Exercice 3.3
+============
+
+35  = 2^5 + 2^1 + 2^0 = 0 0 1 0 0 0 1 1
+127 = 2^8 - 1         = 0 1 1 1 1 1 1 1
+-1                    = 1 1 1 1 1 1 1 1
+-128                  = 1 0 0 0 0 0 0 0
+
+sur 8 bits en complément à 2, 128 n'a pas de représentation, puisque
+l'intervalle de valeurs sur 8 bits est [-2^{8-1};+2^{8-1}-1],
+c'est-à-dire [-128;+127].
+
+
+
+Exercice 3.4
+============
+
+La conjonction et la disjonction sont des lois commutatives et
+associatives. On le vérifie simplement à l'aide de table de vérité.
+
+
+
+Exercice 3.5
+============
+
+(p ou q) et r = (p et r) ou (q et r)
+(p et q) ou r = (p ou r) et (q ou r)
+
+La disjonction est distributive par rapport à la conjonction. De même, la
+conjonction est distributive par rapport à la disjonction. On le vérifie simplement 
+à l'aide de table de vérité. 
+
+
+
+Exercice 3.6
+============
+
+Le langage Java ne signale aucune erreur en cas de dépassement 
+de capacité d'une opération d'arithmétique entière.
+
+
+
+Exercices 3.9 et 3.10
+=====================
+
+enum Couleurs { vert, bleu, gris, rouge, jaune }
+
+public class Couleur {
+    public static void main(String [] args) {
+	Couleurs c = Couleurs.jaune;
+	System.out.println(c);
+	System.out.println(c.ordinal());
+	System.out.println(Couleurs.vert.ordinal());
+    }
+}
+
+
+
+Exercice 4.1
+============
+
+int i = 0; // valide 
+short j; // valide 
+long l1, l2 = 0, l3;  // valide
+short j = 60000; // erreur : dépassement de capacité
+int i = 0x10; // valide
+char c = 'a'; // valide
+char c = a; // valide si a est de type char
+char c = 0x41; // valide (le caractère 'A')
+char c = '\u0041';  // valide
+boolean b = true; // valide 
+boolean b = 0; // erreur : types incompatibles
+real r = 0.1;  // erreur : pas de type real
+float f = 0.1; // erreur : types incompatibles (0.1 est type double)
+double d = 0.1; // valide
+double d = 0; // valide
+float f = 0x10; // valide
+double d = .1; // valide
+int i = 'a'; // valide
+
+
+
+Exercice 4.2
+============
+
+On ne peut affecter la valeur de e à la variable pi
+déclarée "final".
+
+
+
+Exercice 4.3
+============
+
+x       // double
+2       // int
+i = j   // int
+i == j  // boolean
+x + 2.0 // double
+x + 2   // double
+i + 2   // int
+x + i   // double
+x / 2   // double
+x / 2.0 // double
+i / 2   // int
+i / 2.0 // double
+x < y   // boolean
+i % j + y  // double
+i / j + y  // double
+i > j > k  // erreur de syntaxe
+i && b     // erreur : type incompatible
+i == j && b  // boolean
+i > j && k > j // boolean
+x + y * i // double
+i = c     // int
+x = (int) y  // double
+c = (char) ((int) c + 1) // char
+i++ // int
+
+
+
+Exercice 4.4
+============
+
+a * a - c + a / (b * c + c /( d + e / f))
+
+-b + Math.sqrt(b * b - 4 * a * c) / (2 * a)
+
+(1 / a + 1 / b) / (c + d)
+
+
+
+Exercice 4.5
+============
+
+import java.io.*;
+
+class ConversionDurée1 {
+    public static void main(String [] args) throws IOException {
+	int nbHeures, nbMinutes;
+	double durée;
+	/* lire les deux entiers qui représentent la durée */
+	System.out.print("heures : ");
+	nbHeures = StdInput.readlnInt();
+	System.out.print("minutes : ");
+	nbMinutes = StdInput.readlnInt();
+	/* calculer de la durée sous forme décimale */
+	durée = nbHeures + nbMinutes / 60.0;
+	/* écrire la durée sur la sortie standard */
+	System.out.println(durée);
+    }
+}
+
+class ConversionDurée2 {
+    public static void main(String [] args) throws IOException {
+	int nbHeures, nbMinutes;
+	double durée;
+	/* lire la forme décimale d'une durée */
+	System.out.print("entrez une durée : ");
+	durée = StdInput.readlnDouble();
+
+	/* calculer le nombre d'heures */
+	nbHeures = (int) durée;
+	/* calculer le nombre de minutes */
+	nbMinutes = (int) ((durée - nbHeures) * 60);
+
+	System.out.println("h = " + nbHeures + ", m = " + nbMinutes);
+    }
+}
+
+
+
+Exercice 5.1
+============
+
+La somme de deux entiers x et y risque de provoquer un dépassement de
+capacité. Si y est positif, on peut vérifier avant de réaliser
+l'addition si on a bien :
+
+    x <= MAXINT - y
+
+Dans le cas où y est négatif, un dépassement ne peut avoir lieu que
+si x est également négatif. On vérifie alors si :
+
+    x <= MININT - y
+
+La preuve de l'algorithme permet de le valider de manière formelle et
+de s'assurer qu'il produit bien le résultat désiré. Écrivons
+l'algorithme en indiquant les affirmations qui prouvent qu'il écrit
+sur la sortie standard, soit la somme des deux entiers, soit un
+message d'erreur s'il y a un dépassement de capacité.
+ 
+{ Somme de deux entiers avec vérification de dépassement de capacité }
+constantes
+     maxint = { le plus grand entier }
+     minint = { le plus petit entier }
+variables
+     x, y type entier
+
+    { lire les 2 entiers sur l'entrée standard }
+    lire(x,y)
+    { minint <= x <= maxint et minint <= y <= maxint }
+    si y >= 0 alors
+        { minint <= x <= maxint et 0 <= y <= maxint }
+        si x <= maxint - y alors
+          { minint <= x <= maxint et  0 <= y <= maxint et x <= maxint -y }
+          { minint <= x <= maxint - y et  0 <= y <= maxint}
+          { minint <= x+y <= maxint }
+          écrire(x+y)
+        sinon
+          { minint <= x <= maxint et 0 <= y <= maxint et x > maxint - y }
+          écrire("erreur dépassement de capacité")
+        finsi
+     sinon
+        { minint <= x <= maxint et minint <= y < 0 }
+        si x < 0 alors
+          { minint <= x < 0 et minint <= y < 0 }
+          si x >= minint - y alors
+             { minint <= x < 0 et minint <= y < 0 et x >= minint-y }
+             { minint-y <= x < 0 et minint <= y < 0 }
+             { minint <= x+y <= maxint }
+             écrire(x+y)
+          sinon
+             { minint <= x < 0 et minint <= y < 0 et x < minint-y }
+             écrire("erreur dépassement de capacité")
+          finsi
+        sinon
+           { minint <= x <= maxint et minint <= y < 0 et x <= 0 }
+           { 0 <= x <= maxint et minint <= y < 0 }
+           { minint <= x + y <= maxint }
+           écrire(x+y)
+        finsi
+     finsi
+     {la somme x+y est affichée ou 
+      le message << dépassement de capacité >>  est affiché}
+
+Vérifiez que tous les énoncés de l'algorithme conduisent au conséquent
+final. Appliquez la règle de déduction de l'énoncé conditionnel si.
+
+
+
+Exercice 5.2
+============
+
+import java.io.*;
+
+class Min3 {
+    public static void main(String []args) throws IOException {
+	int a,b,c, min;
+  	/* lire 3 entiers sur l'"ES */
+	a = StdInput.readInt();
+	b = StdInput.readInt();
+	c = StdInput.readlnInt();
+	/* calculer min(a,b) */
+	if (a<b) min = a; else min=b;
+	/* calculer min(min(a,b),c) */
+	if (c<min) min = c;
+	System.out.println("le minimum est : " + min);
+    }
+}
+
+
+
+Exercice 5.3
+============
+class Médiane {
+    public static void main(String []args) throws IOException {
+	int a,b,c, médiane;
+  	/* lire 3 entiers sur l'ES */
+	a = StdInput.readInt();
+	b = StdInput.readInt();
+	c = StdInput.readlnInt();
+
+	if (a<b)
+	    if (b<=c)
+		/* a < b <= c */
+		médiane = b;
+	    else
+		/* a < b et c < b */
+		if (c>a)
+		    /* a < c < b */
+		    médiane = c;
+		else
+		    /* c <= a < b */
+		    médiane = a;
+	else
+	    /* a >= b */
+	    if (c>a)
+		/* b <= a < c */
+		médiane = a;
+	    else
+		/* a >= b et c<=a */
+		if (c>b)
+		    /* b < c <= a */
+		    médiane = c;
+		else
+		    /* c <= b <= a */
+		    médiane = b;
+	
+	/* médiane est la médiane de a, b et c */
+	
+	System.out.println("la médiane est : " + médiane);
+    }
+}
+
+
+
+Exercice 5.6
+============
+
+import java.io.*;
+
+class Calcul {
+    public static void main(String []args) throws IOException {
+	int opG, opD, op, res=0;
+  	/* lire l'opération sur l'ES */
+	opG = StdInput.readInt();
+	op  = StdInput.readChar();
+	opD = StdInput.readlnInt();
+	/* évalue rl'opération */
+	switch (op) {
+  	   case '+' : res = opG+opD; break;
+  	   case '-' : res = opG-opD; break;
+  	   case 'x' : res = opG*opD; break;
+   	   case '/' : if (opD==0) {
+  		         System.err.println("erreur : Division par 0");
+                         System.exit(1);
+	              }
+                      res = opG/opD; break;
+	   default : 
+  	             System.err.println("erreur : opérateur inconnu");
+                     System.exit(1);
+	}
+	System.out.println(opG + " " + (char) op + " " + opD + " = " + res);
+    }
+}
+
+
+
+Exercice 5.8
+============
+
+/* 
+ *  Ce programme chiffre une lettre lue sur l'entrée standard selon
+ *  la méthode de César César. Le décalage est d'abord lu.
+ */
+
+import java.io.*;
+
+class César {
+    public static void main(String []args) throws IOException {
+	// lire le décalage et le caractère
+	char c =  StdInput.readChar();
+	int décalage = StdInput.readlnInt(); 
+	// le décalage doit être compris entre 1 et 25
+	if (décalage<1 || décalage > 25)
+	    System.err.println("Erreur : valeur de décalage incorrecte");
+	else {
+	    assert décalage<=1 &&  décalage<=25;
+	    // le caractère à chiffrer doit être une lettre alphabétique
+	    if (Character.isLowerCase(c)) {
+		// chiffrement d'une lettre minuscule
+		c += décalage;
+		if (c>'z') c-=26;
+	    } 
+	    else
+		if (Character.isUpperCase(c)) {
+		    // chiffrement d'une lettre majuscule
+		    c += décalage;
+		    if (c>'Z') c-=26;
+		}
+	    // else ce n'est pas une lettre => le caractère reste inchangé
+	    // écrire le caractère sur la sortie std
+	    System.out.println("c = " + (char) c);
+	}
+    }
+}
+
+
+
+Exercice 6.6
+============
+
+Puisque le mode de transmision des paramètres est par valeur,
+l'échange des valeurs des varaibles x et y n'a pa eu lieu.
+
+
+
+Exercice 7.1
+============
+
+Evidemment, une fonction ne peuvent renvoyer deux résultats, ici deux réels.
+Les fonctions premièreRacine et secondeRacine renverront des valeurs Complexe.
+Voir exercice suivant.
+
+
+
+Exercice 7.2
+============
+
+/** 
+ * La classe Complexe représente les nombres mathématiques complexes. 
+ *
+ *   @author  V. Granet
+*/
+class Complexe {
+
+    /**
+     * La constante <code>Complexe</code> I de valeur (0,1).
+     *
+     */
+    public final static Complexe I = new Complexe(0,1);
+
+    private double réel; // la partie réelle du complexe
+    private double img; // la partie imaginaire du complexe
+    private double eps = 1E-10; // la précision des calculs
+
+    // Les constructeurs
+
+    /**
+     * Construit a nouveau <code>Complexe</code> initialisé à (0,0)
+     */
+    Complexe()
+    {
+	réel = img = 0;
+    }
+
+    /**
+     * Construit a nouveau <code>Complexe</code> initialisé à (r,i)
+     * 
+     * @param   r  a <code>double</code>.
+     * @param   i  a <code>double</code>.
+     */
+    Complexe(double r, double i)
+    {
+	réel = r;  img = i;
+    }
+
+    public String toString()
+    {
+	return "(" + réel +  "," + img + ")";
+    }
+} // fin classe Complexe
+
+
+
+Exercice 7.3
+============
+/** 
+ * La classe Eq2degre définit une équation du second degré
+ * ax2 + bx + c = 0, avec a != 0 et calcule ses 2 racines de type Complexe.
+ *
+ *  @author  V. Granet
+*/
+class Eq2degre {   
+    private static final double epsilon = 1E-100; // précision du calcul
+    private Complexe rac1, rac2; // les deux solutions de l'équation
+
+    /*  Construit un objet Eq2degre avec les 3 coefficients a ,b et c avec a!=0
+     *  et calcule ses 2 racines de type Complexe.
+     *  @param   a   un <code>double</code>.
+     *  @param   b   un <code>double</code>.
+     *  @param   c   un <code>double</code>.
+     */
+    Eq2degre(double a, double b, double c)
+    // Antécédent:  a != 0
+    // Conséquent: rac1, rac2 solutions de l'équation ax2 + bx + c = 0
+    {
+	if(Math.abs(a) < epsilon) {
+            System.err.println("Le terme de second degré doit avoir un coefficient non nul.");
+            System.exit(1);
+        }
+	résoudre(a,b,c);
+    }
+
+    private void résoudre(double a, double b, double c)
+    // Antécédent: a, b, c coefficients réels de l'équation ax2 + bx + c = 0
+    // Conséquent: (x-rac1) (x-rac2) = 0
+    {
+	double r1, r2, i1, i2;
+
+	final double delta = (b*b)-4*a*c; // le discriminant
+
+	if (delta>=0) { // calcul des racines réelles
+	    if (b>0) r1 = -(b+Math.sqrt(delta))/(2*a);
+	    else r1 = (Math.sqrt(delta)-b)/(2*a);
+	    // r1 est la racine la plus grande en valeur absolue
+	    r2 =  (Math.abs(r1)<epsilon) ? 0 : c/(a*r1);
+	    // (x-r1) (x-r2) = 0 
+	}
+	else { // calcul des racines complexes
+	    r1=-b/(2*a); r2=r1;
+	    i1=Math.sqrt(-delta)/(2*a); i2=-i1;  
+	    // (x-(r1+ii1)) (x-(r2+ii2)) = 0 
+	}
+	// (x-(r1+ii1)) (x-(r2+ii2)) = 0 
+	rac1 = new Complexe(r1,i1);
+	rac2 = new Complexe(r1,i2);
+	// (x-rac1) (x-rac2) = 0
+    }
+
+    /**
+     * Renvoie la première racine de l'équation courante 
+     *
+     * @return un <code>Complexe</code>
+     */
+    public Complexe premièreRacine()
+    {
+	return rac1;
+    }
+
+    /**
+     * Renvoie la deuxième racine de l'équation courante 
+     *
+     * @return un <code>Complexe</code>
+     */
+    public Complexe deuxièmeRacine()
+    {
+	return rac2;
+    }
+
+    /**
+     * Construit une chaine de caractères qui contient les deux racines
+     * de l'équation.
+     *
+     * @return une <code>String</code>
+     */
+    public String toString  ()
+    {
+	return "rac1 = " + rac1 + " rac2 = " + rac2;
+    }
+} // fin classe Eq2degre
+
+
+
+Exercice 7.4
+============
+
+/** 
+ * La classe Complexe représente les nombres mathématiques complexes. 
+ *
+ *   @author  V. Granet
+*/
+class Complexe {
+
+    /**
+     * La constante <code>Complexe</code> I de valeur (0,1).
+     *
+     */
+    public final static Complexe I = new Complexe(0,1);
+
+    private double réel; // la partie réelle du complexe
+    private double img; // la partie imaginaire du complexe
+    private double eps = 1E-10; // la précision des calculs
+
+    // Les constructeurs
+
+    /**
+     * Construit a nouveau <code>Complexe</code> initialisé à (0,0)
+     */
+    Complexe()
+    {
+	réel = img = 0;
+    }
+
+    /**
+     * Construit a nouveau <code>Complexe</code> initialisé à (r,i)
+     * 
+     * @param   r  a <code>double</code>.
+     * @param   i  a <code>double</code>.
+     */
+    Complexe(double r, double i)
+    {
+	réel = r;  img = i;
+    }
+
+    // méthodes d'accès aux variables membres
+
+    /** 
+     * Renvoie la partie réélle de l'objet <code>Complexe</code> courant.
+     *
+     *  @return  <code>double</code>.
+     */
+    public double partieRéelle()
+    {
+	return réel;
+    }
+
+    /** 
+     * Renvoie la partie imaginaire de l'objet <code>Complexe</code> courant.
+     *
+     * @return  <code>double</code>.
+     */
+    public double partieImaginaire()
+    {
+	return img;
+    }
+    
+    // Les fonctions de conversion polaires
+
+    /** 
+     * Renvoie la norme de l'objet <code>Complexe</code> courant.
+     *
+     * @return  <code>double</code>.
+     */
+    public double rho()
+    {
+	return Math.sqrt(réel+réel + img*img);
+    }
+
+    /** 
+     * Renvoie la phase de l'objet <code>Complexe</code> courant.
+     *
+     * @return  <code>double</code>.
+     */
+    public double theta()
+    {
+	return Math.atan2(réel,img);
+    }
+
+    /** 
+     * Renvoie la phase de l'objet <code>Complexe</code> courant.
+     *
+     * @return  <code>double</code>.
+     */
+    public double theta2()
+    {
+      if (Math.abs(réel) < eps)
+	 if (Math.abs(img) < eps) return 0;
+	 else
+	    return (img > 0) ? Math.PI/2 : -Math.PI/2;
+      else 
+	  // préel<>0 
+	  // arctg n'est définie que sur [-pi/2, pi/2]
+	  // ainsi arctg(tg(p))=p ssi p dans [-pi/2, pi/2]
+	  if (réel > 0)
+	      return Math.atan(img/réel);
+	  else 
+	      return img >= 0.0 ? 
+		  Math.atan(img/-réel) + Math.PI/2 : Math.atan(img/-réel) - Math.PI/2;
+    }
+    
+    // Opérations classiques sur les complexes
+
+    /** 
+     * Additionne le paramètre <code>Complexe</code> c à l'objet courant.
+     *
+     * @param c un <code>Complexe</code>.
+     */
+    public void plus(Complexe c)
+    {
+	réel += c.réel;
+	img += c.img;
+    }
+
+    /** 
+     * Soustrait le paramètre <code>Complexe</code> c à l'objet courant.
+     *
+     * @param  c un <code>Complexe</code>.
+     */
+    public void moins(Complexe c)
+    {
+	réel -= c.réel;
+	img -= c.img;
+    }
+
+    /** 
+     * Multiplie le paramètre <code>Complexe</code> c à l'objet courant.
+     *
+     * @param  c un <code>Complexe</code>.
+     */
+    public void mult(Complexe c)
+    {
+	// Faire le produit des normes et la somme des phases
+	// de this et c et construire un Complexe qui sera donc le 
+	// prduit de this par c
+	Complexe p = complexePol(this.rho()*c.rho(),
+				 this.theta()+c.theta());
+
+	// affecter les parties réelle et imaginaire de p à this
+	réel = p.partieRéelle();
+	img  = p.partieImaginaire();
+    }
+
+    /** 
+     * Teste si le paramètre <code>Complexe</code> c et de l'objet courant sont égaux.
+     * Le test est fait à un epsilon près.
+     *
+     * @param  c un <code>Complexe</code>.
+     */
+    public boolean égal(Complexe c)
+    {
+	return Math.abs(réel - c.réel) < eps &&  Math.abs(img - c.img)  < eps;
+    }
+
+    /** 
+     * Teste si le paramètre <code>Complexe</code> c et de l'objet courant sont différents.
+     * Le test est fait à un epsilon près.
+     *
+     * @param  c un <code>Complexe</code>.
+     */
+    public boolean différent(Complexe c)
+    {
+	return Math.abs(réel - c.réel) > eps ||  Math.abs(img - c.img)  > eps;
+    }
+
+    /** 
+     * Construit un objet <code>Complexe</code> à partir de deux paramètres 
+     * <code>double</code> qui représente les coordonnées polaires (rho et theta) 
+     * d'un complexe.
+     *
+     * @param  r un <code>double</code>
+     * @param  t un <code>double</code>
+     * @return un <code>Complexe</code>
+     */  
+    public static Complexe complexePol(double r, double t)
+    {
+	return new Complexe(r*Math.cos(t),r*Math.sin(t));
+    }
+
+    /** 
+     * Construit un objet <code>String</code> qui est la représentation sous forme 
+     * d'une chaine de caractères de l'objet courant <code>Complexe</code>
+     *
+     * @return une <code>String</code>
+     */
+    public String toString()
+    {
+	return "(" + réel +  "," + img + ")";
+    }
+} // fin classe Complexe
+
+
+
+Exercice 8.1
+============
+
+class Boucles {
+    public static long factorielle(long n)
+    // Antécédent: n >= 0
+    // Conséquent: factorielle=n!
+    {
+	long i = 0, fact = 1;
+	// Invariant : fact=i!
+	while (i<n) {
+	    // fact * (i+1) = i!*(i+1) et i<n
+	    i++;
+	    // fact*i = i!
+	    fact*=i;
+	    // fact = i!
+	}
+	// i=n et fact = i! = n!
+	return  fact;
+    }
+
+    // Antécédent: a > 0 et b > 0
+    // Conséquent: pgcd(a,b) = pgcd(a-b,b) et a>b 
+    //                       = pgcd(a,b-a) et a<b 
+    public static int pgcd(int a, int b) {
+	while (a != b) {
+	    // System.out.println("a = " + a + " b = " + b);
+	    // pgcd(a,b) = pgcd(a-b,b) et a>b
+	    //           = pgcd(a,b-a) et a<b
+	    if (a>b)
+		// pgcd(a,b) = pgcd(a-b,b) et a>b
+		a -= b;
+	    else
+		b -=a;
+	    // pgcd(a,b) = pgcd(a,b-a) et a<b
+	}
+	return a;
+    }
+
+    // Antécédent: x = a, y = b }
+    // Conséquent: produit(x,y) = x * y =  a * b }
+    public static int produit(int x, int y) {
+	int p = 0;
+	// a * b = p + x * y }
+	while (y>0) {
+	    // a * b = p + x * y et y>0}
+	    while  ((y & 1) == 0) { // y est pair 
+		// a * b = p + x * y et y = (y / 2) * 2 > 0
+		// a * b = p + 2x * (y / 2) et y = (y / 2) * 2 > 0
+		y >>= 1;
+		// a * b = p + 2x * y
+		x <<= 1;
+		// a * b = p + x * y 
+	    }
+	    // a * b = p + (x-1) * y + y et y>0 et y impair
+	    p += x;
+	    // a * b = p + x * y-1  et y impair
+	    y--;
+	    // a * b = p + x * y
+	}
+	// y = 0 et a * b = p + x * y = p
+	return p;
+    }
+
+    public static int puissance(int x, int y) {
+	int p = 1;
+	// a ^ b = p * x ^ y }
+	while (y>0) {
+	    // a ^ b = p * x ^ y et y>0}
+	    while  ((y & 1) == 0) { // y est pair 
+		// a ^ b = p * x ^ y et y = (y / 2) * 2 > 0
+		y >>= 1;
+		// a ^ b = p * x ^ (2 * y)
+		x *= x;
+		// a ^ b = p * x ^ y 
+	    }
+	    // a ^ b = p * x ^ y + y et y>0 et y impair
+	    p *= x;
+	    // a ^ b = p * x ^ y-1  et y impair
+	    y--;
+	    // a ^ b = p * x ^ y
+	}
+	// y = 0 et a ^ b = x ^ y = p
+	return p;
+    }
+} // fin classe Boucles
+
+
+
+Exercice 8.2
+============
+
+fonction factorielle(donnée n: naturel): naturel
+{ Antécédent: n >= 0 }
+{ Conséquent: factorielle = n! }
+variables
+   i, fact type naturel
+
+   i <- n
+   fact <- 1 { Invariant : fact= n! / i! }
+   tantque i>0 faire
+       { fact * i = n! / (i-1)! et i>0 }
+       fact <- fact * i
+       { fact = n! / (i-1)! et i>0 }
+       i <- i - 1
+       { fact = n! / i! }
+   fintantque
+   { i=0 et fact = n! / i! = n! }
+   rendre fact  
+finfonc {factorielle}
+
+La fonction f(i)=i-1 nous permet de démontrer la finitude de la boucle. 
+Pour i=0, le prédicat d'achèvement sera vérifié.
+
+
+
+Exercice 8.3
+============
+
+public static void main (String[] args) {
+    int n=2;
+    long fact_n_1 = 1; // (n-1)!
+	
+    while (n<=(Long.MAX_VALUE/fact_n_1))
+        // on peut calculer n!
+        fact_n_1 = factorielle(++n);
+    // n est le plus grand entier tel que n!<=LONG_MAX
+    System.out.println(n);
+}
+
+
+
+Exercice 8.4
+============
+
+// antécédent : x >= 0
+// conséquent : sinus = sinus(x)
+public static double sinus(double x) {
+   final double epsilon = 0.000001;
+   final double x2 = x*x;
+   double t, s;
+   int k = 1;
+
+   t = x; s = t; 
+   while (Math.abs(t) >= epsilon) {
+       // s est la somme des k+1/2 premiers termes
+       // du développement en série entière de sinus
+       k+=2;
+       // calcul du terme courant t en fonction du précédent
+       t = -t*x2/(k*(k-1));
+       s += t;
+   }
+   // s = sinus(x) à un epsilon près
+   return s;
+ }
+
+
+
+Exercice 8.6
+============
+
+ // calcul du produit par décomposition binaire
+ // de l'opérande y
+ public static int produit(int x, int y) {
+     int p = 0; // le résultat
+     int z = x;
+     while (y != 0) {
+         if ((y & 1) != 0) // y est impair 
+              p+=z;
+         z<<=1;
+         y>>>=1;
+     }
+     return p;
+ }
+
+ // calcul de la puissance par décomposition binaire
+ // de l'opérande y
+ public static double puissance2(double x, int y) {
+     double p = 1.0; // le résultat
+     double z = x;
+     while (y != 0) {
+         if ((y & 1) != 0) // y est impair
+              p*=z;
+         z*=z;
+         y>>=1;
+     }
+     return p;
+ }
+
+
+
+Exercice 8.8
+============
+
+class Fraction {
+    private int numérateur, dénominateur;
+    public Fraction(int x, int y) {
+	numérateur = x; 
+	dénominateur = y;
+    }
+
+    // Antécédent: le dénominateur de la fraction est différent de 0 
+    // Rôle: renvoie la fraction irréductible de this
+    public Fraction irréductible()
+    {
+
+	if (numérateur == 0) // laisser la fraction telle quelle
+	    return this;
+
+	// numérateur != 0 
+	// chercher le pgcd du dénominateur et du numérateur 
+	int pégécédé = Boucles.pgcd(numérateur,dénominateur);
+	// diviser le numérateur et le dénominateur par le pgcd
+	return new Fraction(numérateur/pégécédé, dénominateur/pégécédé);
+    }
+
+    public String toString() {
+	return numérateur + "/" + dénominateur; 
+    }
+} // fin classe fraction
+
+
+
+Exercice 8.9
+============
+
+ // Antécédent : n >= 0 
+ // Conséquent : estPremier = true si n est un nombre premier,
+ //              false sinon.
+ public static boolean estPremier (int n) {
+     final int racine2DeN = (int) Math.sqrt(n);
+     int diviseur=2;
+
+     if (n < 2)  // 0 et 1 ne sont pas des nombres premiers
+         return false;
+     // n >= 2
+     while (diviseur <= racine2DeN)
+         // Invariant : il n'existe pas de k, 1<k<diviseur tel que n mod k = 0
+         if (n % diviseur++ == 0) // n n'est pas premier
+             return false;
+     // n est premier
+     return true;
+ }
+
+
+
+Exercice 8.10
+============
+
+{ Rôle : calcul de la racine carrée d'un réel positif
+         selon l'algorithme d'Héron L'Ancien donné 
+         au Ie siècle avant JC
+}
+fonction rac2(donnée x : réel): réel
+{ Antécédent: x >= 0 }
+{ Conséquent: rac2 = racine carrée de x }
+constante
+    epsilon = 1e-15
+variable
+    r type réel 
+
+    r <- x/2;
+    tantque  abs(x-r*r)>epsilon faire 
+        r <- (r + x/r)/2
+    fintantque
+    rendre r
+finfonc {rac2}
+
+
+
+Exercice 9.4
+============
+
+procédure Ératosthène(donnéee n : entier)
+  variables
+       crible type array[[2,n]] de booléen
+       i, p , n type [2,maxint]
+       vide type booléen
+
+  { initialisation du crible }
+  pourtout i de 2 à n faire crible[i] <- vrai
+  { rechercher tous les nombres premiers du crible }
+  p <- 2
+  répéter
+     { p est le plus petit élément du crible:
+       il est PREMIER => l'écrire sur la sortie standard
+     }
+     écrire(p)
+     { le retirer avec tous ses multiples }
+     m <- p
+     répéter
+         crible[m] <- faux
+         m <- m+p
+     jusqu'à m>N
+     { On recherche le minimum du crible à partir
+       de p. On découvre éventuellement que le crible est vide
+     }
+     vide <- vrai
+     tantque vide et p<=N faire
+         si crible[p] alors vide <- false
+           sinon  p <- p+1
+         finsi
+     fintantque
+  jusque vide
+  { le cribe est vide et tous les nombres premiers }
+  { qu'il contenait ont été écrits sur la sortie standard }
+finproc { Ératosthène }
+
+
+
+Exercice 9.5
+============
+
+import java.util.*;
+/**
+ * La Classe définit des vecteurs de dimension quelconque
+ * Invariant de classe : ...
+ */
+public class Vecteur {
+    // générateur aléatoire
+    private static Random rand = new Random();
+    // tableau des composantes
+    private double[] valeurs;
+    // nb de composants
+    private int nbElts;
+
+    /** 
+     * Rôle : construit le vecteur this à n dimensions initialisé à 0
+     *
+     * @param n <code>int</code>, dimension du vecteur this à construire
+     */
+    public Vecteur(int n) {
+	valeurs = new double[nbElts = n];
+    }
+    
+    /** 
+     * Rôle : tous les composants du vecteur this sont initialisés à une
+     *        valeur aléatoire
+     */
+    public void aléatoire() {
+	for (int i = 0; i < dimension(); i++)
+	    valeurs[i] = rand.nextDouble();
+    }
+
+    /** 
+     * @return un <code>int</code>, la dimension du vecteur this
+     *        
+     */
+    public int dimension() {
+	return nbElts;
+    }
+
+    /** 
+     * @return la norme, un <code>double</code> du vecteur this
+     */
+    public double norme() {
+	double res = 0.0;
+	for (int i = 0; i < dimension(); i++)
+	    res += valeurs[i] * valeurs[i];
+	return Math.sqrt(res);
+    }
+
+    /**
+     * Rôle : normalise le <code>Vecteur</code> this
+     */
+    public void normalise() {
+	double n = norme();
+	if (n > 0)
+	    for (int i = 0; i < dimension(); i++) 
+		valeurs[i] /= n;
+    }
+
+    /** 
+     * @return le produit scalaire de v par this
+     *
+     * @param v <code>Vecteur</code>
+     */
+    public double produitScalaire(Vecteur v) {
+	double res = 0;
+	
+	if (v.dimension() != dimension()) {
+	    System.err.println("vecteurs de dimension imcompatibles");
+	    System.exit(1);
+	}
+	// les dimensions des 2 vecteurs sont compatibles
+	// On peut faire le produit scalaire
+	for (int i = 0; i < dimension(); i++) 
+	    res += valeurs[i] * v.valeurs[i];
+	return res;
+    }
+
+
+} // fin classe Vecteur
+
+
+
+Exercice 10.7
+=============
+
+n^3log n + 5 est O(n^3log n)
+
+2n^(5/2) est O(n^(5/2)
+
+2^n  est O(2^n)
+
+
+
+Exercice 10.8
+=============
+
+la fonction nlog2(n) est linéaire.
+
+
+
+Exercice 10.9
+=============
+
+2^(n+2) = 4 2^n est O(2^n)
+
+(n+2)^4 = n^4 + 8n^3 + 24n^2 + 32n + 16 est  O(n^4)
+
+
+
+Exercice 10.11
+==============
+
+Une première façon de procéder consiste d'abord à ranger dans un tableau
+les n valeurs lues sur l'entrée standard, puis à trier ce tableau à l'aide
+d'un tri interne simple. On prend alors la kème plus grande valeur de la
+suite directement.
+
+
+Une seconde façon de procéder consiste à former un ensemble des k premiers
+éléments lus sur l'entrée standard. Le plus petit élément est en kème
+position. Ensuite, on lit un à un les n-k éléments restants. Si le nouvel
+élément est supérieur au plus petit élément de l'ensemble, il prend sa
+place. Une fois, tous les éléments lus sur l'entrée standard, le plus petit
+élément de l'ensemble est le kème plus grand élément.
+
+
+
+Exercice 10.14
+==============
+
+// Rôle : calcule l'intégrale de la fonction cosinus sur
+//        l'intervalle [a,b] divisé en n rectangles
+//        (méthode des rectangles)
+//
+public static double intégrerRectangle(double a, double b, int n) {
+     double largeur=(b-a)/n; 
+     double x=a+largeur/2;
+     double aire = 0;
+
+     for (int i=1; i<=n; i++, x+=largeur)
+         //  on calcule somme(1,N) [ (xi+1-xi)*f((xi+xi+1)/2 ]
+         aire += largeur*Math.cos(x);
+     return aire;
+}
+
+Avec cette méthode, il faut une centaine de rectangle pour calculer
+l'intégrale de cosinus entre 0 et pi/2 exacte à la 5e décimale.
+
+
+
+Exercice 10.16
+==============
+
+public String toString() {
+    String s="";
+    for (int i=NB_BITS-1; i>=0; i--)
+        s+=this.bits[i];
+    return s;
+}
+
+
+
+Exercice 10.17
+==============
+   /*
+    *  Antécédent : 0 <= n <= NB_BITS
+    *  Rôle : produit un décalage ouvert de n bits
+    *         vers la droite du Binaire courant 
+    */
+   void décalageDroit(int n) {
+       assert n>=0 && n<=NB_BITS;
+       // décaler de n bits vers la droite
+       for (int i=NB_BITS-1-n; i>=0; i--)
+           this.bits[i+n] = this.bits[i];
+       // mettre les n premiers bits à 0
+       for (int i=0; i<n; i++)
+           this.bits[i] = 0;
+   }
+
+
+
+Exercice 11.1
+=============
+
+n (n^2+1)/2
+
+
+
+Exercice 11.2
+=============
+
+public class Matrice {
+    // Invariant : this est une matrice (nbLignes, nbColonnes)
+    private int m[][];
+    private int nbLignes, nbColonnes;
+
+    public int prendre(int i, int j)
+    // Rôle : renvoie l'élément (i,j) de la matrice this
+    { 
+	if (i<0 || i>=nbLignes) {
+  	  System.err.println("Indice des lignes hors index");
+	  System.exit(1);
+        }
+	if (j<0 || j>=nbColonnes)
+  	  System.err.println("Indice des lignes hors index");
+	  System.exit(1);
+        }	
+        return m[i][j]; 
+    }
+
+    public void mettre(int i, int j, int x)
+    // Rôle : affecte la valeur x à l'élément (i,j) de la matrice this
+    { 
+	if (i<0 || i>=nbLignes) {
+  	  System.err.println("Indice des lignes hors index");
+	  System.exit(1);
+        }
+	if (j<0 || j>=nbColonnes)
+  	  System.err.println("Indice des lignes hors index");
+	  System.exit(1);
+        }	
+        m[i][j] = x; 
+    }
+} // fin classe Matrice
+
+
+
+Exercice 11.3
+=============
+
+public Matrice produit(Matrice m)
+// Role : renvoie le produit de m par this
+{
+    Matrice c = new Matrice (this.nbLignes,m.nbColonnes);
+
+    for (int i = 0; i < c.nbLignes; i++)
+        for (int j = 0; j < c.nbColonnes; j++) {
+            // pour tout x dans [1,i-1], pour tout y dans [1,j-1]
+            // c{x,y}= somme de k=1 à p de this.m(x,k)* m.m(k,y)
+            int somme=0;
+            for (int k = 0; k < this.nbColonnes; k++)
+                somme += this.prendre(i,k)*m.prendre(k,j);
+            c.mettre(i,j,somme);
+        }
+    return c;
+}
+
+public boolean symétrique() {
+    if (nbLignes != nbColonnes)
+        // matrice non symétrique
+        return false;
+    // la matrice est carrée. Est-elle symétrique ?
+    int l = 0;
+    do {
+        l++;
+        int c = 0;
+        do {
+            if (prendre(l,c) != prendre(c,l))
+                return false;
+            c++;
+        } while (c < l);
+        //  pour tout i,j dans [1,l], m[i,l]=m[j,l]
+    }  while (l < nbLignes-1);
+    //  pour tout i,j dans [0,nblignes-1], m[i,j]=m[j,i]
+    return true;
+}
+
+
+
+Exercice 11.4
+=============
+
+Donnons tout d'abord une partie la classe Vecteur :
+
+/**
+ * La Classe definit des vecteurs de dimension quelconque
+ */
+public class Vecteur {
+    private double[] valeurs;
+    // nb de composants
+    private int nbElts;
+    /** 
+     * @return un <code>int</code>, la dimension du vecteur this
+     *        
+     */
+    public int dimension() {
+        return nbElts;
+    }
+
+    /** 
+     * @return la ième composante du vecteur this, si elle existe
+     *         sinon signale une erreur
+
+     * @param i <code>int</code>, la ième composante
+     */
+    public double prendre(int i) {
+        if (i < 0  || i >= dimension()) {
+            // la composante i n'existe pas
+            System.err.println("prendre : composante " + i + "inexistante");
+            System.exit(1);
+        }
+        return valeurs[i];
+    }
+
+    /**
+     * Rôle : valeurs[i] = val, si i est un indice valide, sinon erreur
+     *
+     * @param i <code>int</code>, la ième composante
+     *,@param val <code>double</code>, la valeur à affecter
+     */
+    public void mettre(int i, double val) {
+        if (i < 0 || i >= dimension()) {
+            // la composante i n'existe pas
+            System.err.println("mettre : compsante " + i + "inexistante");
+            System.exit(1);
+        }
+        valeurs[i] = val;
+    }
+
+} // fin classe Vecteur
+
+La méthode << produit >> de la classe Matrice assure le produit de la matrice
+courante par un vecteur passé en paramètre et fournit le vecteur résultat
+
+ 
+/**
+ * Rôle : produit matrice-vecteur
+ *
+ * @param v second terme du produit
+ * @return this * v
+ */
+public Vecteur produit(Vecteur v) {
+    if (nbColonnes != v.dimension()) {
+        System.err.println("produit vecteur: dimensions incompatibles");
+        System.exit(1);
+    }
+    // les dimensions sont compatibles
+    Vecteur r = new Vecteur(nbLignes);
+
+    for (int i = 0; i < nbLignes; i++) {
+        double somme  = 0;
+        for (int k = 0; k < nbColonnes; k++)
+            somme += prendre(i, k) * v.prendre(k); 
+        r.mettre(i, somme);
+        // r(i) = somme de k=0 à nbColonnes des this(i,k)*v(k) 
+    }    
+    return r;
+}
+
+
+
+Exercice 12.3
+=============
+
+/**
+ * La classe Point représente les points du plan cartésien
+ */
+public class Point {
+    private double x,y;
+
+    /*
+     *  Rôle : this = (x,y) 
+     */
+    public Point(double x, double y) {
+	this.x = x;
+	this.y = y;
+    }
+
+    /*
+     *  Rôle : this = p
+     */
+    public Point(Point p) {
+	this.x = p.x;
+	this.y = p.y;
+    }
+
+    /*
+     *  Rôle: renvoie this == p 
+     */
+    public boolean égal(Point p) {
+	return this.x == p.x && this.y == p.y;
+    }
+
+    /*
+     * Rôle : renvoie la distance entre le point p et this
+     */
+    public double distance(Point p) {
+	return Math.sqrt((p.x-this.x)*(p.x-this.x)+(p.y-this.y)*(p.y-this.y));
+    }
+
+    /*
+     * Rôle : renvoie la représentation du Point courant sous
+     *        forme d'une String
+     */
+    public String toString() {
+	return "(" + this.x + "," + this.y + ")";
+    }
+}
+
+
+
+Exercice 12.4
+=============
+/**
+ *  La classe Triangle représente les triangles dans le plan cartésien
+ */
+public class Triangle {
+    protected double la, lb, lc;
+    protected int aa, ab, ac;
+    protected Point pa, pb, pc;
+
+    /**
+     * Rôle : initialise le triangle courant
+     *        les 3 points doivent distincts
+     */
+    public Triangle(Point a, Point b, Point c) throws TriangleException
+    {
+	// vérifier si les 3 points sont distincts
+	if (a.égal(b) || a.égal(c) || b.égal(c))
+	    throw new TriangleException("Triangle dégénéré");
+	// les points  sont distincts
+	this.pa=a; this.pb=b; this.pc=c;
+	// calculer les longueurs des cotés
+	this.la=a.distance(b); this.lb=b.distance(c); this.lc=c.distance(a);
+	// calculer les valeurs des angles en degré
+	aa=rad2Degré(Math.acos((-sqr(la)+sqr(lb)+sqr(lc))/(2*lb*lc)));
+	ab=rad2Degré(Math.acos((sqr(la)-sqr(lb)+sqr(lc))/(2*lc*la)));
+	ac=rad2Degré(Math.acos((sqr(la)+sqr(lb)-sqr(lc))/(2*la*lb)));
+    }
+
+    /**
+     *  Rôle : renvoie la valeur en degré de l'angle a exprimé en radian
+     */
+    private static int rad2Degré(double a) {
+	return (int) Math.round(a*180.0/Math.PI);
+    }
+
+    
+    /**
+     *  Rôle : renvoie le carré de x
+     */
+    private static double sqr(double x) {
+	return x*x;
+    }
+    
+    /**
+     *  Rôle : renvoie le périmètre du triangle 
+     */
+    public double périmètre() {
+	return la+lb+lc;
+    }
+}
+
+
+
+Exercice 12.5
+=============
+/**
+ * La classe TriangleEquilatéral représente les triangles
+ * équilatéraux dans le plan cartésien
+ */
+public class TriangleEquilatéral extends Triangle {
+    public TriangleEquilatéral(Point a, Point b, Point c)
+    throws TriangleException
+    {
+	super(a,b,c);
+	if (super.la != super.lb || super.lb != super.lc)
+	    throw new TriangleException("Triangle non équilatéral");
+    }
+}
+
+
+
+Exercice 13.1
+=============
+
+/** 
+  * Rôle : compose n fois la lambda f :  f o f ... o f 
+  */
+static <T> Function<T,T> composeNFoisR(Function<T,T> f, int n) {
+    if (n==1) return f;
+    return (x) -> f.apply(composeNFoisR(f,n-1).apply(x));
+}
+
+
+
+Exercice 13.2
+=============
+interface Fonction2<T,R> {
+    R apply(T x, T y);
+}
+
+static <T> T apply(Fonction2 <T> f, T ... args)  {
+     T r = args[0];
+     for (int i=1; i<args.length; i++)
+         r = f.apply(r, args[i]);
+     return r;
+}
+
+
+
+Exercice 13.5
+=============
+
+interface Fonc<R> {
+    R apply(int x, int y);
+}
+
+public static <R> R fibCont(int n,  Fonc<R> g) {
+    if (n==2 || n==1)
+       return g.apply(1,1);
+    //
+    return fibCont(n-1,  (u, v) -> g.apply(v, v+u));
+}
+
+
+
+Exercice 13.6
+=============
+
+interface Func1<R,T> {
+    R eval(T x);
+}
+
+interface Func2<R,T> {
+    R eval(T x, T y);
+}
+
+static <R,T> Func1<Func1<R,T>,T> curry2(Func2<R,T> f) {
+    return (x) -> (y) -> f.eval(x,y);
+}
+
+static <R,T> Func2<R,T> uncurry2(Func1<Func1<R,T>,T> f) {
+    return (x,y) -> f.eval(x).eval(y);
+}
+
+
+
+Exercice 14.3
+=============
+
+public static double inverse(double x) {
+    try {
+        return 1/x;
+    }       
+    catch  (ArithmeticException e) {
+        System.out.println("divison par 0");
+        return 0;
+    }
+}
+
+
+
+Exercice 14.4
+=============
+
+class DateException extends Exception {
+    public DateException(String s)
+    {
+	super(s);
+    }
+}
+
+class Date {
+    // Invariant de classe: les attributs jours, mois et année
+    //	                    représentent une date valide >= annéeMin
+    private static final int annéeMin = 1582;
+
+    private int jour, mois, année;
+    private int NbJoursMois;
+
+    public Date(int j, int m, int  a)
+    // Antécédent:
+    // Conséquent: jour = j, mois = m et année = a représentent
+    //              une date valide
+	throws DateException
+    {
+	if (a <  annéeMin)
+	    throw new DateException("Année incorrecte");
+	// l'année est bonne
+	année = a;
+	if (m<1 || m>12)
+	    throw new DateException("Mois incorrect");
+	// le mois est bon, tester le jour
+	mois = m;
+	switch (m) {
+	case 1 : ;
+	case 3 : ;
+	case 5 : ;
+	case 7 : ;
+	case 8 : ;
+	case 10 : ;
+	case 12 : NbJoursMois = 31; break;
+	case 4 : ;
+	case 6 : ;
+	case 9 : ;
+	case 11 : NbJoursMois = 30; break;
+	case 2 : NbJoursMois = Bissextile() ? 29 : 28;
+	}
+	if (j>NbJoursMois) throw new DateException("jour incorrect");
+	// Ok initialisez les champs
+	jour = j; 
+    }
+
+    public void demain() 
+    // Antécédent : jour, mois, année représentent une date valide
+    // Conséquent : jour, mois, année représentent la date du lendemain
+    {
+	if (jour<NbJoursMois) 
+	    // le mois et l'année de changent pas
+	    jour++;
+	else {
+	    // c'est le dernier jour du mois, il faut passer au
+	    // premier jour du mois suivant                    
+	    jour=1;
+	    if (mois<12) mois++;
+	    else {
+		// c'est le dernier mois de l'année, il faut passe 
+		// au premier mois de l'année suivante
+		mois=1; année++;
+	    }
+	}
+    }
+
+    public boolean Bissextile()
+    {
+	return  ((année % 4 == 0 && année % 100 != 0) || année % 400 == 0);
+    }
+
+    public String toString()
+    // Conséquent : renvoie la date courante sous forme 
+    // d'une chaîne de caractères
+    {
+	String smois = "";
+
+	switch (mois) {
+	case 1  : smois = " janvier "; break;
+	case 2  : smois = " fevrier "; break;
+	case 3  : smois = " mars "; break;
+	case 4  : smois = " avril "; break;
+	case 5  : smois = " mai "; break;
+	case 6  : smois = " juin "; break;
+	case 7  : smois = " juillet "; break;
+	case 8  : smois = " aout "; break;
+	case 9  : smois = " septembre "; break;
+	case 10 : smois = " octobre "; break;
+	case 11 : smois = " novembre "; break;
+	case 12 : smois = " décembre ";
+	}
+	return jour + smois +  année;
+    }
+}
+
+
+
+Exercice 14.5
+=============
+
+voir solutions 12.4 et 12.5
+
+
+
+Exercice 15.1
+=============
+
+import java.io.*;
+
+/**
+ *  Le classe CribleEratosthene définit un crible d'entiers pour la recherche
+ *  des nombre premiers.
+ *  
+ *  Invariant: this.toString() renvoie les nombres premiers du crible
+ */
+public  class CribleEratosthene {
+
+    private final String[] crible = { "crible1", "crible2" };
+
+    /** 
+     * Antécédent : n >= 2
+     * Conséquent : Le crible d'Eratosthène contient la suite d'entiers de 2 à n 
+     *
+     * @param n taille du crible
+     */
+    public CribleEratosthene (int n) 
+    {
+        créerCrible(n, crible[0]);
+    }
+
+    /*  
+     * Antécédent : n >= 2 et f le nom du fichier à créer
+     * Conséquent : f contient la suite d'entiers de 2 a n.
+     *
+     * @param n entier maximal
+     * @param f fichier où écrire le crible
+     */
+    private void créerCrible(int n, String f)
+    {
+        try {
+            DataOutputStream os = new DataOutputStream(new FileOutputStream(f));
+            // initialiser le crible
+            try {
+                for (int i = 2 ; i<= n ; i++)
+                    os.writeInt(i);
+                // fermer le fichier
+                os.close();
+            }
+            catch (IOException e) {
+                System.err.println("Erreur d'écriture sur le crible");
+                return;
+            }
+        }
+        catch (IOException e) {
+            System.err.println("creerCrible: Erreur d'écriture sur le crible");
+            return;
+        }
+    }
+
+    /*
+     * Antécédent : le fichier crible[0] contient la suite d'entiers de 2 à n 
+     * Conséquent : tamiser renvoie une chaîne caractères formée de tous les
+     *              nombres premiers contenus dans le fichier crible[0]
+     */
+    private String tamiser()
+    {
+        int premier,             // le nombre premier courant
+            x = 0,               // l'entier courant  
+            courant = 0;         // le numéro du fichier courant (0 ou 1)
+        String nbPremiers = "";  // la chaîne résultat
+
+        do // le crible n'est pas vide 
+            try {
+                // ouvrir en lecture le fichier principal
+                DataInputStream is = new DataInputStream(new FileInputStream(crible[courant]));
+                // le crible n'est pas vide et premier(crible[courant])
+                // est son minimum et il est PREMIER.
+                try {
+                    premier = is.readInt();
+                    // on l'ajoute à la chaîne résultat nbPremiers
+                    nbPremiers += premier + " ";
+
+                    // recopier les valeurs differentes de premier et de ses
+                    // multiples sur le fichier auxiliaire
+                    // (i.e. crible[opposé(courant)])
+                    DataOutputStream os = 
+                        new DataOutputStream(new FileOutputStream(crible[(courant + 1) % 2]));
+                    try {
+                        while (true)
+                            if (((x = is.readInt()) % premier) != 0) os.writeInt(x);
+                    }
+                    catch(EOFException e) {
+                        // on a fini de recopier les entiers
+                        is.close();
+                        os.close();
+                    }
+                    catch (IOException e) {
+                        System.err.println("tamiser: erreur de réécriture");
+                        return "";
+                    }
+                    // permuter le fichier principal et fichier auxiliaire
+                    courant = (courant + 1) % 2;
+                }
+                catch(EOFException e) {
+                    // le crible est vide => fin de la méthode
+                    try { is.close(); } catch(IOException ee) {}
+                    return nbPremiers;
+                }
+                catch (IOException e) {
+                    // erreur de lecture dans le fichier d'entrée
+                    System.err.println("tamiser: erreur de lecture");
+                    return "";
+                }
+            }
+            catch(FileNotFoundException e) {
+                // impossible d'ouvrir le fichier d'entrée
+                System.err.println("tamiser: erreur de lecture");
+                return "";
+            }
+        while (true);
+    } // fin méthode tamiser
+
+    /**
+     * Rôle : renvoie une chaîne de caractères formée des nombres premiers
+     *        contenus dans le crible d'Ératosthène 
+     */
+    public String toString() 
+    {
+        return tamiser();
+    }
+
+} // fin classe CribleEratosthene
+
+
+
+Exercice 15.2
+=============
+
+public class Commentaires {
+    public static void main(String [] args) throws IOException {
+	if (args.length != 1) {
+	    System.err.println("Usage: commentaire fichier");
+	    System.exit(1);
+			      
+	}
+
+	FileReader is = null;
+	try {
+	    is = new FileReader(args[0]);
+	}
+	catch (FileNotFoundException e) {
+	    System.err.println("fichier '" + args[0] + "' non trouvé");
+	    System.exit(2); 
+	}
+
+	int c;
+        while ((c = is.read()) != -1) {
+	    if (c != '/') 
+		// ce n'est pas un commentaire, recopier le caractère courant
+		// sur la sortie standard
+		System.out.print((char) c);
+	    else { // début d'un commentaire ?
+		if ((c = is.read()) == '/') { // sauter le commentaire jusqu'à la fin de ligne
+		    while ((c = is.read()) != '\n') ;
+		    System.out.println();
+		}
+		else // commentaire de la forme /* ?
+		    if (c != '*') { // c'est l'opérateur de division /
+			System.out.print("/" + (char) c);
+                    else // un commentaire de la forme /*
+		         // sauter le commentaire jusqu'au parenthéseur */
+			while (true) {
+			    while ((c = is.read()) != '*' && c!= -1) ;
+			    if (c == '*') {
+				while ((c = is.read()) == '*') ;
+				if (c == '/') break;
+			    }
+			    if (c == -1) {
+				System.err.println("fin de fichier atteinte");
+				System.exit(1);
+			    }
+		    }
+	    }
+	}
+    }
+}
+
+
+
+Exercice 15.3
+=============
+
+public void copie(String source, String dest) throws IOException
+{
+    FileReader is = new FileReader(source);
+    PrintWriter os = new PrintWriter(new FileWriter(dest));
+    int c, nbligne = 0, pred = '\n';
+
+    while ((c = is.read()) != -1) {
+        if (pred == '\n')
+            os.print(++nbligne + "   ");
+        os.write(c);
+	pred = c;
+    }
+    // fin de fichier de is
+    // fermer les fichiers is et os
+    is.close();
+    os.close();
+}
+
+
+
+Exercice 16.5
+=============
+
+{ Rôle : écrit le chiffre décimal n sous forme romaine }
+{        en fonction des caractères x, y et z 
+procédure écrireRomain(données n : entier
+                               x, y, z : caractère)
+    choix n parmi 
+       0 : 
+       1 : écrire(x) 
+       2 : écrire(x, x) 
+       3 : écrire(x, x, x) 
+       4 : écrire(x, y) 
+       5 : écrire(y) 
+       6 : écrire(y, x) 
+       7 : écrire(y, x, x) 
+       8 : écrire(y, x, x, x) 
+       9 : écrire(x, z) 
+    finchoix
+finproc { écrireRomain }
+
+{ Rôle : convertit le nombre décimal n sous forme romaine }
+procédure convertirRomain(données n : entier
+                                  tranche : {unité, dizaine, centaine, millier})
+        si(n>0) alors
+            convertirRomain(n / 10, tranche suivante)
+            choix tranche parmi 
+               unite    : écrireRomain(n % 10,'I','V','X') 
+               dizaine  : écrireRomain(n % 10,'X','L','C') 
+               centaine : écrireRomain(n % 10,'C','D','M') 
+               millier  : écrireRomain(n % 10,'M',' ',' ') 
+            finchoix
+        finsi
+finproc { convertirRomain }
+
+
+
+Exercice 16.6
+=============
+{ 
+  Rôle : écrit sur la sortie standard toutes les permutations
+         d'une suite d'éléments contenue dans le tableau s
+         entre les bornes inf et sup
+}
+procédure permuter(donnée  s: tableau [[1,n]] d'éléments
+                           int, sup: [1,n])
+variable i type [1,n]
+
+     si inf < sup alors
+          pour i de inf à sup faire
+             échanger(s, inf, i);
+             permuter(s, inf+1, sup);
+          finpour
+     sinon { écrire sur la sortie standard une permutation trouvée }
+           afficher(s)
+     finsi
+finproc { permuter }
+
+{ 
+  Rôle: échange les valeurs des paramètres a et b 
+}
+procédure échanger(résultat a, b : éléments)
+variables x type éléments
+
+     x <- a
+     a <- b
+     b <- x
+finproc { échanger }
+
+
+
+Exercice 18.2
+=============
+
+public class ListeChaînéeBidon<T> extends ListeAbstraite<T> implements Liste<T> {
+    protected int  lg;
+    protected Noeud<T> tête;
+
+    // pour des liste hétérogènes
+   /**
+     * Rôle : construit une liste vide. Les éléments
+     *        de la liste pourront être de types différents
+     */
+    public ListeChaînéeBidon() {
+	tête = new Noeud<T>(null);
+    }
+
+
+    public Liste<T> filtrer(Predicate<T> f) {
+	Liste<T> l = new ListeChaînéeBidon<T>();
+	int r = 1;
+	for (T x : this) {
+	    if (f.test(x))
+		l.ajouter(r++, x);
+	}
+	return l;
+    }
+
+    /**
+     * Rôle : renvoie la longueur de la liste courante
+     * @return un <code>int</code>
+     */
+    public int longueur() {
+      return lg;
+    }
+
+    /** Rôle : renvoie l'objet de rang r de la liste courante.
+     *  Antécédent : 1 <= r <= this.longueur()
+     *
+     *  @param r <code>int</code>, le rang
+     *  @return un <code>T</code>
+     *  @exception <code>RangInvalideException</code> si rang hors bornes
+     */
+    public T ième(int r) throws RangInvalideException {
+	if (r<1 || r> lg) throw new RangInvalideException();
+	Noeud<T> n = tête.noeudSuivant();
+	for (int i=1; i< r; i++) n = n.noeudSuivant();
+	// n désigne le noeud de rang r
+	return n.valeur();
+    }
+
+   /** Rôle : affecte l'objet e au rang r dans la liste courante
+     *  Antécédent : 1 <= r <= this.longueur()
+     *
+     *  @param r <code>int</code>, le rang d'affectation
+     *  @param e <code>T</code>, l'object à affecter
+     *  @exception <code>RangInvalideException</code> si rang hors bornes
+     */
+    public void affecter(int r, T e) throws RangInvalideException {
+	if (r<1 || r> lg) throw new RangInvalideException();
+	Noeud<T> n = tête.noeudSuivant();
+	for (int i=1; i< r; i++) n = n.noeudSuivant();
+	// n désigne le noeud de rang r
+	n.changerValeur(e);
+    }
+
+    /** Rôle : supprime l'objet e de rang r dans la liste courante
+     *  Antécédent : 1 <= r <= this.longueur()
+     *
+     *  @param r <code>int</code>, le rang de l'objet à supprimer
+     *  @exception <code>RangInvalideException</code> si rang hors bornes
+     */
+    public void supprimer(int r) throws RangInvalideException {
+	if (r<1 || r> lg) throw new RangInvalideException();
+	Noeud<T> p = tête, q = tête.noeudSuivant();
+	for (int i=1;  i<r; i++) {
+	    p = q;
+	    q = q.noeudSuivant();
+	}
+	// q désigne l'élément de rang k et p le prédécesseur
+	p.suivant(q.suivant());
+	lg--;
+    }
+
+   /** Rôle: insère l'élément o au rang r dans la liste courante
+     *  Antécédent : 1 <= r <= this.longueur()+1
+     *
+     *  @param r <code>int</code>, le rang d'insertion
+     *  @param e <code>T</code>, l'object à affecter
+     *  @exception <code>RangInvalideException</code> si rang hors bornes
+     */
+    public void ajouter(int r, T e) throws RangInvalideException {
+	if (r < 1 || r > lg +1) throw new RangInvalideException();
+	// créer le nouvel élément
+	Noeud<T> n = new Noeud<T>(e);
+	Noeud<T> p = tête, q = tête.noeudSuivant();
+	for (int i=1;  i<r; i++) {
+	    p = q;
+	    q = q.noeudSuivant();
+	}
+	// q désigne l'élément de rang r et p le prédécesseur}
+	p.suivant(n);
+	n.suivant(q);
+	lg++;
+    }
+
+    /** Rôle: échange les objets de rang r1 et r2 dans la liste courante
+     *  Antécédent : 1 <= r1 <= this.longueur() et 1 <= r2 <= this.longueur()
+     *    
+     *  @param r1 <code>int</code>, rang d'échange
+     *  @param r2 <code>int</code>,  rang d'échange
+     *  @exception <code>RangInvalideException</code> si rang hors bornes
+     */
+    public void échanger(int r1, int r2) throws RangInvalideException
+    // échanger les élements de rang r1 et r2
+    {
+	if (r1 < 1 || r1 > lg) throw new RangInvalideException();
+	if (r2 < 1 || r2 > lg) throw new RangInvalideException();
+	if (r1>r2) { // échanger r1 et r2
+	    int aux = r1; r1 = r2; r2 = aux;
+	}
+	
+	Noeud<T> p = tête.noeudSuivant();
+	for (int i = 1;  i < r1; i++)
+	   p = p.noeudSuivant();
+	// p désigne  l'élément de rang r1
+	r2 = r2-r1;
+	Noeud<T> q = p;
+	for (int i = 1;  i <= r2; i++)
+	    q = q.noeudSuivant();
+	// p désigne  l'élément de rang r2
+	// échangér les valeurs de ces deux noeuds
+	T aux;
+	aux = p.valeur(); p.changerValeur(q.valeur());
+	q.changerValeur(aux);
+    }
+
+    /**  Rôle : renvoie l'énumération des éléments de la liste courante
+     *
+     * @return une <code>Iterator</code>
+     */
+    public Iterator<T> iterator() {
+	return new ListeIterator();
+    }
+
+    private class ListeIterator implements Iterator<T> {
+	private Noeud<T> courant;
+
+	private ListeIterator() {
+	    courant = tête.noeudSuivant();
+	}
+
+	public boolean hasNext() {
+	    return courant != null;
+	}
+
+	public T next() throws NoSuchElementException {
+	    if (hasNext()) {
+		T e = courant.valeur();
+		courant = courant.noeudSuivant();
+		return e;
+	    }
+	    // pas de suivant
+	    throw new NoSuchElementException();
+	}
+
+	public String toString()
+	{
+	    String s = "";
+	    Iterator énum = iterator();
+	    while (énum.hasNext())
+		s += énum.next() + " ";
+	    return s;
+	}
+    }
+} // fin classe ListeChaînéeBidon
+
+
+
+Exercice 18.3
+=============
+
+/**
+ * La classe ListeChaînéeBidon est une implémentation de l'interface
+ * Liste à l'aide d'une structure chaînée comportant un élément bibdon
+ * en tête.
+ */
+
+public class ListeChaînée2Bidon implements Liste {
+    protected int  lg;
+    protected Noeud2 tête, queue;
+    protected Class typeDesÉléments;
+
+    public ListeChaînée2Bidon(Class c) {
+	typeDesÉléments = c;
+	tête = new Noeud2(null);
+	queue = new Noeud2(null);
+	tête.suivant(queue);
+	queue.précédent(tête);
+    }
+
+    public int longueur() {
+      return lg; 
+    }
+
+    public Object ième(int r) throws RangInvalideException {
+	if (r<1 || r> lg) throw new RangInvalideException();
+	Noeud2 n = tête.noeudSuivant();
+	for (int i=1; i< r; i++) n = n.noeudSuivant();
+	// n désigne le noeud de rang r
+	return n.valeur();
+    }
+
+    public void affecter(int r, Object e) throws RangInvalideException {
+	if (r<1 || r> lg) throw new RangInvalideException();
+	Noeud2 n = tête.noeudSuivant();
+	for (int i=1; i< r; i++) n = n.noeudSuivant();
+	// n désigne le noeud de rang r
+	n.changerValeur(e);
+    }
+
+    public void supprimer(int r) throws RangInvalideException {
+	if (r<1 || r> lg) throw new RangInvalideException();
+	if (r == 1) // suppression en tête de liste
+	    tête = tête.noeudSuivant();
+	else 
+	    if (r == lg)  { // suppression du dernier de la liste
+		queue = queue.noeudPrécédent();
+		queue.suivant(null);
+	    }
+	    else { // cas général, r > 1 et r < lg 
+		Noeud2 q = tête.noeudSuivant(), p = null;
+		for (int i=1;  i< r; i++) {
+		    p = q;
+		    q = q.noeudSuivant();
+		}
+		// q désigne l'élément de rang r
+		q.noeudSuivant().précédent(p);
+		p.suivant(q.suivant());
+	    }
+	lg--;
+    }
+
+    // Rôle: ajouter l'élément o au rang r dans la liste courante
+    public void ajouter(int r, Object e) throws RangInvalideException {
+	if (e.getClass() != typeDesÉléments)
+	    throw new TypeIncompatibleException();
+
+	if (r < 1 || r > lg +1) throw new RangInvalideException();
+
+	Noeud2 n = new Noeud2(null);
+	if (r==1) { // insertion en tête de liste
+	    tête.changerValeur(e);
+	    tête.précédent = n;
+	    n.suivant(tête);
+	    tête = n;
+	}
+	else 
+	    if (r == lg + 1)  { // ajout du dernier de la liste
+		queue.changerValeur(e);
+		queue.suivant(n);
+		n.précédent(queue);
+		queue = n;
+	    }
+	    else { // cas général, r > 1 et r <= lg
+		Noeud2 p = tête, q = tête.noeudSuivant();
+		for (int i=1;  i< r; i++) { 
+		    p = q;
+		    q = q.noeudSuivant();
+		}
+		// q désigne l'élément de rang r et p le predecesseur
+		n.changerValeur(e);
+		p.suivant(n);
+		n.précédent(p);
+		n.suivant(q);
+		q.précédent(n);
+	    }
+	lg++;
+    }
+
+    public void échanger(int r1, int r2) throws RangInvalideException
+    // échanger les élements de rang r1 et r2
+    {
+	if (r1 < 1 || r1 > lg) throw new RangInvalideException();
+	if (r2 < 1 || r2 > lg) throw new RangInvalideException();
+	if (r1>r2) { // échanger r1 et r2
+	    int aux = r1; r1 = r2; r2 = aux;
+	}
+	
+	Noeud2 p = tête.noeudSuivant();
+	for (int i = 1;  i < r1; i++)
+	   p = p.noeudSuivant(); 
+	// p désigne  l'élément de rang r1
+	r2 = r2-r1;
+	Noeud2 q = p;
+	for (int i = 1;  i <= r2; i++)
+	    q = q.noeudSuivant(); 
+	// p désigne  l'élément de rang r2
+	// échangér les valeurs de ces deux noeuds
+	Object aux;
+	aux = p.valeur(); p.changerValeur(q.valeur()); 
+	q.changerValeur(aux); 
+    }
+
+    protected Object élémentDeTête() {
+	return ième(1);
+    }
+
+    protected Object élémentDeQueue() {
+	return ième(lg);
+    }
+
+    protected void ajouterEnTête(Object o) {
+	ajouter(1,o);
+    }
+
+    protected void ajouterEnQueue(Object o) {
+	ajouter(lg+1,o);
+    }
+
+
+    protected void supprimerEnTête() {
+	supprimer(1);
+    }
+
+    protected void supprimerEnQueue() {
+	supprimer(lg);
+    }
+
+
+    public Énumération listeÉnumération() {
+	return new ListeÉnumération();
+    }
+
+    private class ListeÉnumération implements Énumération {
+	private Noeud2 courant;
+
+	private ListeÉnumération() {
+	    courant = tête.noeudSuivant();
+	}
+
+	public boolean finÉnumération() {
+	    return courant == queue;
+	}
+
+	public Object élémentSuivant() throws FinÉnumérationException {
+	    if (finÉnumération()) throw new FinÉnumérationException();
+	    Object e = courant.valeur();
+	    courant = courant.noeudSuivant();
+	    return e;
+	}
+
+	public String toString() {
+	    String s = "";
+	    Énumération énum = listeÉnumération();
+	    while (! énum.finÉnumération())
+		s += énum.élémentSuivant() + " ";
+	    return s;   
+	}
+    }
+
+    public String toString()
+    {
+	String s = "";
+	Énumération énum = listeÉnumération();
+	while (! énum.finÉnumération())
+	    s += énum.élémentSuivant() + " ";
+	return s;
+    }
+}
+
+
+
+Exercice 18.5
+=============
+
+public class EvalExpressionPostfixée {
+    public static void main(String [] args) throws Exception {
+	// créer un flot d'unités syntaxiques à partir de l'entrée standard
+	StreamTokenizer st = 
+	    new StreamTokenizer(new BufferedReader
+				(new InputStreamReader(System.in)));
+	// la pile des opérandes
+	Pile<Double> p = new PileTableau<Double>();
+
+	st.ordinaryChar((int) '/');
+	while (st.nextToken() != st.TT_EOF)
+	    if (st.ttype == st.TT_NUMBER) // empiler l'opérande
+		p.empiler(st.nval);
+	    else { 
+		char op = (char) st.ttype;
+		if (op == '+' || op == '-' || op == '*' || op == '/') {
+		    // un opérateur binaire 
+		    try {
+			double opD = p.sommet(); p.dépiler();
+			double opG = p.sommet(); p.dépiler();
+			switch (op) {
+			  case '+' : p.empiler(opG + opD); break;
+			  case '-' : p.empiler(opG - opD); break;
+			  case '*' : p.empiler(opG * opD); break;
+			  case '/' : if (opD == 0) {
+			                System.err.println("Division par zéro");
+				        System.exit(1);
+			             }
+                                     p.empiler(opG/opD);
+			}
+		    }
+		    catch (PileVideException e) {}
+		}
+		else 
+		    if (op == '=') // => afficher le résultat
+			System.out.println(p.sommet().doubleValue());
+		    else
+			System.err.println("opérateur inconnu : " + op); 
+	    }
+	// fin de fichier
+    }
+} // fin classe EvalExpressionPostfixée
+
+
+
+Exercice 18.6
+=============
+
+public Liste<T> filtrer(Predicate<T> f) {
+    Liste<T> l = new ListeChaînéeBidon<T>();
+    int r = 1;
+    for (T x : this) {
+        if (f.test(x))
+   	   l.ajouter(r++, x);
+    }
+   return l;
+}
+
+
+
+Exercice 19.1
+=============
+
+Le nombre maximim d'arêtes d'un graphe à n sommets et p composantes connexes
+est 1/2(n-p)(n-p+1).
+
+
+
+Exercice 19.4
+=============
+
+public class GrapheMatrice<S> extends GrapheAbstrait<S> {
+    protected static int MAXSOMMETS;
+    protected int nbSommets;
+    protected boolean [][] matI;
+    private Hashtable<S, Integer> lesSommets;
+    private Hashtable<Integer, S> lesIndices;
+
+    public GrapheMatrice(int n) {
+	MAXSOMMETS = n;
+	matI = new boolean[n][n];
+	lesSommets = new Hashtable<S, Integer>();
+	lesIndices = new Hashtable<Integer, S>();
+    }
+
+    public int ordre() {
+	return nbSommets;
+    }
+
+    // renvoie l'indice dans la matrice d'adjacence du sommet s
+    protected int numéro(S s) {
+	Integer indice = lesSommets.get(s);
+	if (indice == null) throw new SommetException();
+	return indice.intValue();
+    }
+
+    // renvoie le sommet d'indice i dans la matrice d'adjacence
+    protected S sommet(int i) {
+	S s = lesIndices.get(i);
+	if (s == null) throw new SommetException();
+	return s;
+    }
+
+    //Conséquent: arête = il existe une arête entre s1 et s2
+    public boolean arête(S s1, S s2) {
+	return matI[numéro(s1)][numéro(s2)] || matI[numéro(s2)][numéro(s1)];
+    }
+
+   //Conséquent: qrc = il existe une aec entre s1 et s2
+    public boolean arc(S s1, S s2) {
+	return matI[numéro(s1)][numéro(s2)];
+    }
+
+    // Conséquent: demiDegréInt = demi-degré intérieur du sommets s
+    public int demiDegréInt(S s) {
+	int nbDegrésInt = 0;
+
+	for (int  i = 0; i < nbSommets; i++)
+	    if (matI[i][numéro(s)]) nbDegrésInt++;
+	return 	nbDegrésInt;
+    }
+
+    // Conséquent: demiDegréExt = demi-degré extérieur du sommets s
+    public int demiDegréExt(S s) {
+	int nbDegrésExt = 0;
+	for (int i = 0; i < nbSommets; i++)
+	    if (matI[numéro(s)][i]) nbDegrésExt++;
+	return 	nbDegrésExt;
+    }
+
+    // Conséquent: degré = degré du sommets s d'un graphe non orienté
+    public int degré(S s) {
+	int nbDegrés = 0;
+
+	for (int  i = 0; i < nbSommets; i++)
+	    if (matI[numéro(s)][i] || matI[i][numéro(s)]) nbDegrés++;
+	return 	nbDegrés;
+    }
+
+    public int degréGO(S s) {
+	return demiDegréInt(s) + demiDegréExt(s);
+    }
+
+    // Conséquent : ièmeSucc = ième successeur du sommet s
+    public S ièmeSucc(S s, int i) {
+	if (i <= 0) throw new SommetException();
+	int k = 0;
+	do {
+	    if (k == nbSommets) throw new SommetException();
+	    if (matI[numéro(s)][k++]) i--;
+	} while (i != 0); 
+	// k est le numéro du ième successeur du sommet s
+	return sommet(k-1);
+    }
+
+    // Conséquent: arc(g,s1,s2) = vrai
+    public void ajouterArête(S s1, S s2) throws ArêteException {
+	matI[numéro(s1)][numéro(s2)] = matI[numéro(s2)][numéro(s1)] = true;
+    }
+
+    public void enleverArête(S s1, S s2) throws ArcException {
+	matI[numéro(s1)][numéro(s2)] = matI[numéro(s2)][numéro(s1)] = false;
+    }
+
+    public void ajouterSommet(S s) throws SommetException {
+	if (nbSommets == MAXSOMMETS) 
+	    throw new GraphePleinException();
+	lesSommets.put(s, nbSommets);
+	lesIndices.put(nbSommets++, s);
+    }
+
+    public void enleverSommet(S s) throws SommetException {
+	if (nbSommets == 0)
+	    throw new GrapheVideException();
+	lesIndices.remove(numéro(s));
+	lesSommets.remove(s);
+	nbSommets--;
+    }
+
+    // Conséquent: arc(g,s1,s2) = vrai
+    public void ajouterArc(S s1, S s2) throws ArcException {
+	matI[numéro(s1)][numéro(s2)] = true;
+    }
+
+    public void enleverArc(S s1, S s2) throws ArcException {
+	matI[numéro(s1)][numéro(s2)] = true;
+    }
+
+    //
+    // Énumération des sommets du graphe
+    //
+    public Iterator<S> iterator() {
+	return new GrapheÉnumération();
+    }
+
+    private class GrapheÉnumération implements Iterator<S> {
+	private Enumeration<S> e;
+	
+	GrapheÉnumération() {
+	    e =  lesSommets.keys();
+	}
+	
+	public boolean hasNext() {
+	    return e.hasMoreElements();
+	}
+
+	public S next() throws NoSuchElementException {
+	    if (hasNext()) return e.nextElement();
+	    // fin de l'énumération
+	    throw new NoSuchElementException();
+	}
+    }
+
+    // Énumération des sommets adjacents au sommet s
+    public Iterable<S> sommetsAdjacents(S s) {
+	return new SommetsAdjacentsÉnumération(s);
+    }
+
+    private class SommetsAdjacentsÉnumération implements Iterable<S> {
+	private Iterator<S> énumSommets;
+
+	SommetsAdjacentsÉnumération(S s) {
+	    // construire la liste des successeurs de s
+	    Liste<S> listeSom = new ListeChaînée2<S>();
+	    int i = 0;
+	    do 
+		if (matI[numéro(s)][i]) 
+		    listeSom.ajouter(listeSom.longueur()+1,sommet(i));
+	    while (++i < nbSommets);
+	    énumSommets = listeSom.iterator();
+	}
+	
+	public boolean hasNext() {
+	    return énumSommets.hasNext();
+	}
+
+	public S next() throws NoSuchElementException {
+	    if (hasNext())
+		return énumSommets.next();
+	    //
+	    throw new FinÉnumérationException();
+
+	}
+
+	public Iterator<S> iterator() {
+	    return énumSommets;
+	}
+    }
+}
+
+public class GrapheListe<S> extends GrapheAbstrait<S> {
+    
+    private Hashtable<S, Liste<S>> 
+	listeI = new Hashtable<S, Liste<S>>();
+
+    private boolean rechercher(Liste<S> l, S s) {
+	Iterator<S> énum = l.iterator();
+
+	while (énum.hasNext()) {
+	    S x = énum.next();
+	    if (x.equals(s))
+		return true;
+	}
+	return false;
+    }
+
+    private S sommet(int i) {
+	return null;
+    }
+
+    private Liste<S> getListe(S s) {
+	return  listeI.get(s);
+    }
+
+    public int ordre() {
+	return listeI.size();
+    }
+
+    // Conséquent: arête = il existe une arête entre s1 et s2
+    public boolean arête(S s1, S s2) {
+	return rechercher(getListe(s1), s2) || rechercher(getListe(s2), s1);
+    }
+
+   // Conséquent: arête = il existe une arête entre s1 et s2
+    public boolean arc(S s1, S s2) {
+	return rechercher(getListe(s1), s2);
+    }
+
+    // Conséquent: demiDegréInt = demi-degré intérieur du sommets s
+    public int demiDegréInt(S s) {
+	int nbdegrés = 0;
+	Enumeration<Liste<S>> lesListes = (Enumeration<Liste<S>>) 
+	    listeI.elements();
+	while (lesListes.hasMoreElements())
+	    if (rechercher(lesListes.nextElement(), s)) nbdegrés++;
+	return nbdegrés;
+    }
+
+    // Conséquent: demiDegréExt = demi-degré extérieur du sommets s
+    public int demiDegréExt(S s) {
+	return 	getListe(s).longueur();
+    }
+
+    // Conséquent: degré = degré du sommets s d'un graphe non orienté
+    public int degré(S s) {
+	return getListe(s).longueur();
+    }
+
+
+    public int degréGO(S s) {
+	return demiDegréInt(s) + demiDegréExt(s);
+    }
+
+    // Conséquent : ièmeSucc = ième successeur du sommet s
+    public S ièmeSucc(S s, int i) {
+	return (S) getListe(s).ième(i);
+    }
+
+    public void ajouterSommet(S s) throws SommetException {
+	listeI.put(s, new ListeChaînée<S>());
+    }
+
+    public void enleverSommet(S s) throws SommetException {
+	listeI.remove(s);
+    }
+
+    // Conséquent: arc(g,s1,s2) = vrai
+    public void ajouterArête(S s1, S s2)  throws ArêteException {
+	Liste<S> l = getListe(s1);
+	l.ajouter(l.longueur()+1, s2);
+	l  = getListe(s2);
+	l.ajouter(l.longueur()+1,s1);
+    }
+
+    public void enleverArête(S s1, S s2) throws ArêteException {
+    }
+
+    public void ajouterArc(S s1, S s2) throws ArcException {
+	Liste<S> l = getListe(s1);
+	l.ajouter(l.longueur()+1, s2);
+    }
+
+    public void enleverArc(S s1, S s2) throws ArcException {
+    }
+
+
+    // Énumération des sommets du graphe
+    public Iterator<S> iterator() {
+	return new GrapheÉnumération();
+    }
+
+    private class GrapheÉnumération implements Iterator<S> {
+	private Enumeration<S> énum;
+	
+	GrapheÉnumération() {
+	    énum = listeI.keys();
+	}
+	
+	public boolean hasNext() {
+	    return énum.hasMoreElements();
+	}
+
+	public S next() throws NoSuchElementException {
+	    if (hasNext()) return énum.nextElement();
+	    //
+	    throw new NoSuchElementException();
+	}
+    }
+
+
+    // Énumération des sommets adjacents au sommet s
+    public Iterable<S> sommetsAdjacents(S s) {
+	return new SommetsAdjacentsIterator(s);
+    }
+
+    private class SommetsAdjacentsIterator implements Iterable<S> {
+	private  Iterator<S> e;
+	
+	SommetsAdjacentsIterator(S s) {
+	    e = getListe(s).iterator();
+	}
+	
+	public boolean hasNext() {
+	    return e.hasNext();
+	}
+
+	public void remove() { /* not implemented */ }
+
+	public S next() throws NoSuchElementException {
+	    if (hasNext()) 
+		return e.next();
+	    //
+	    throw new NoSuchElementException();
+	}
+
+	public Iterator<S> iterator() {
+	    return e;
+	}
+
+    }
+}
+
+
+
+Exercice 19.9
+=============
+
+Soit le sommet s1 puits d'un graphe connexe G. S'il existe un sommet s2
+également puits de G, il existe alors un arc entre s1 et s2 ainsi
+qu'un arc entre s2 et s1, ce qui est en contradiction avec la
+définition du puits. Un graphe connexe possède donc au plus un seul puits.
+
+/*------------------------------------------------------------------------*/
+
+// Rôle : cette fonction renvoie le sommet, puits du graphe courant,
+//        s'il exite, sinon renvoie null.
+public Sommet chercherPuits() {
+	Énumération g = grapheÉnumération();
+	while (!g.finÉnumération()) {
+	    Sommet s = (Sommet)  g.élémentSuivant();
+	    if (demiDegréExt(s) == 0 && demiDegréInt(s) == ordre()-1)
+		// s est le puits du graphe
+		return s;
+	}
+	// le graphe ne possède pas de puits
+	return null;
+}
+
+
+
+Exercice 20.1
+=============
+
+algorithme parcoursEnLargeur(a : Arbre)
+variable
+   f de type File 
+
+   f <- fileVide()
+   enfiler(f,a)
+   répéter
+        {les noeuds ont été enfilés}
+        {selon un parcours par niveau}
+        b <- premier(f) 
+        défiler(f)
+        traiter la racine de b
+        enfiler dans f tous les fils de b
+   jusqu'à estVide(f)
+finalgo
+
+
+
+Exercice 20.2
+=============
+
+- Montrez que le nombre de noeuds d'un arbre binaire de profondeur p 
+  est inférieur à 2^(p+1). 
+
+Un arbre dont chaque niveau est complet possède un nombre de noeuds
+n tel que  n = 2^0+2^1+2^2+ ... + 2^p = 2^(p+1)-1) / (2-1) = 2^(p+1)-1
+        => n < 2(p+1)
+
+Rappelons qu'une suite géométrique est de la forme Un = Un-1 x q 
+et que s = somme de n=1 à m des Un = q^m-1 / q-1, avec Un = q^n
+et dans le cas d'un arbre binaire q=2.
+
+
+
+Exercice 20.3
+=============
+
+/* hauteur d'un arbre quelconque */
+
+private int pHauteur(Arbre<E> a) {
+    int max = 0;
+    for (int r = a.forêt().longueur(); r >= 1; r--) 
+        max = Math.max(max, pHauteur(a.forêt().ièmeArbre(r)));
+    return max + 1;
+}
+
+/** renvoie la hauteur de l'arbre n-aire courant
+    @return <code>int</code>
+*/
+public int hauteur() {
+    return pHauteur(this) - 1;
+}
+
+/* hauteur d'un arbre binaire. On considère que la
+ * hauteur d'un arbre vide est égale à -1
+ */
+
+private int pHauteur(ArbreBinaire<E> a) {
+    return  a.estVide() ?  0 :
+        // sinon il existe au moins un sous-arbre
+        1 + Math.max(pHauteur(a.sag()),pHauteur(a.sad()));
+}
+
+/** renvoie la hauteur de l'arbre binaire courant
+ *
+ * @return <code>int</code>
+ * @exception <code>ArbreVideException</code>
+ */
+public int hauteur() throws ArbreVideException {
+    if (estVide())
+        throw new ArbreVideException();
+    return pHauteur(this) - 1;
+}
+
+
+
+Exercice 20.4
+=============
+
+ private int pStrahler(ArbreBinaire<E> a) {
+     if (a.estVide()) return 0;
+     // a n'est pas une feuille mais un noeud
+     int gStrahler = pStrahler(a.sag());
+     int dStrahler = pStrahler(a.sad());
+     if (gStrahler == dStrahler) return gStrahler + 1;
+        else return Math.max(gStrahler,dStrahler);
+}
+
+public int strahler() {
+    return pStrahler(this);
+}
+
+
+
+Exercice 20.5
+=============
+
+/**
+ * Rôle : retourne vrai si les arbres this et a sont miroirs
+ *        et faux sinon
+ */
+public boolean estMiroir(ArbreBinaire<T> a) throws ArbreVideException {
+        return estMiroir(this,a);
+}
+
+/*
+ * Rôle : estMiroir = vrai si a est le miroir de b; faux sinon
+ *
+ */
+private boolean estMiroir(ArbreBinaire<T> a, ArbreBinaire<T> b)
+    throws ArbreVideException
+
+{
+    if (a.estVide() &&  b.estVide())
+        // les deux arbres sont vides
+        return true;
+    if (a.estVide() || b.estVide())
+        // un des deux arbres est vide et pas l'autre
+        return false;
+    // les 2 arbres de sont pas vides
+    if (a.valeur().compareTo(b.valeur()) != 0)
+        // le noeuds sont différents
+        return false;
+    // les 2 noeuds sont identiques
+    return estMiroir(a.sag(),b.sad()) && estMiroir(a.sad(),b.sag());
+}
+
+
+
+Exercice 21.3
+=============
+
+{ Rôle : recherche le mot m dans la table des mots réservés }
+{        les mots sont rangés par ordre de longueurs croissantes }
+{        et par ordre alphabétique pour les mots d'une même longueur. }
+{ Conséquent: Rechercher = mot dans tmr }
+
+fonction rechercher(données m   : alpha: 
+                            tmr : TTableDesMots;
+                            tdl : TTableDesLongueurs): boolean
+variables
+   lgmot: 1..maxAlpha
+   i, bsup: 1..maxMots+1
+   arret: boolean
+
+         lgmot <- longueur(mot)
+	 { 1 <= lgmot <= maxAlpha }
+         si lgmot > NbLongueurs then Rechercher:=false
+	 else begin
+	     { pourtout i dans Tlong[lgmot] .. Tlong[lgmot+1]-1]
+	          LongueurMot(Tmots[i]) = LongueurMot(mot) 
+	     }
+	     i:=Tlong[lgmot]; bsup:=Tlong[lgmot+1];
+	     if i=bsup then rechercher:=false
+	     else begin
+	       { recherche sequentielle entre les 2 bornes }
+	       arret:=false;
+	       repeat
+	           if mot>=Tmots[i] then arret:=true
+		   else i:=i+1
+	       until (i=bsup) or arret;
+	       rechercher:= Tmots[i]=mot
+	     end
+	 end
+     end
+end;
+
+
+
+Exercice 21.4
+=============
+
+/**
+ * La classe ListeNonOrdonnéeChaînée implémente le type abstrait Table
+ * à l'aide d'une liste chaînée non ordonnée. Cette classe étend
+ * la classe ListeChaînée.
+ */
+public class ListeNonOrdonnéeChaînée extends ListeChaînée implements Table {
+    protected Comparable comp;
+
+    public ListeNonOrdonnéeChaînée(Comparable cmp) 
+	throws ClassNotFoundException 
+    {
+	super(Class.forName("Élément"));
+	comp = cmp;
+    }
+
+    public boolean estVide() {
+      return longueur() == 0;
+    }
+
+    public Élément rechercher(Object clé) throws CléNonTrouvéeException
+    {
+	if (! comp.comparable(clé))
+	    throw new CléIncomparableException();
+
+	Énumération énum = listeÉnumération();
+
+	while (! énum.finÉnumération()) {
+	    Object x = énum.élémentSuivant();
+	    if (comp.égal(((Élément) x).clé(), clé))
+		return (Élément) x;
+	}
+	throw new CléNonTrouvéeException();
+    }
+
+    public void ajouter(Élément e) {
+	// on ajoute en queue de liste
+	super.ajouter(longueur()+1, e);
+    }
+
+    public void supprimer(Object clé) throws CléNonTrouvéeException
+    {
+	if (! comp.comparable(clé))
+	    throw new CléIncomparableException();
+	Noeud p = null, q = tête;
+	while (q != null) {
+	    if  (comp.égal(((Élément) q.valeur()).clé(), clé)) {
+		if (p == null) // supprimer le premier de la liste
+		    tête = tête.noeudSuivant();
+		else // supprimer l'élément réferencé par q
+		    p.suivant(q.suivant());
+		lg--;
+		return;
+	    }
+	    p = q;
+	    q = q.noeudSuivant();   
+	}
+	throw new CléNonTrouvéeException();	
+    }
+}
+
+
+
+Exercice 21.5
+=============
+
+/**
+ * La classe ListeOrdonnéeTableau implémente le type abstrait Table
+ * à l'aide d'un tableau. Cette classe étend
+ * la classe ListeTableau.
+ */
+public class ListeOrdonnéeTableau extends ListeTableau implements Table {
+    protected Comparable comp;
+
+    public ListeOrdonnéeTableau(Comparable cmp) 
+	throws ClassNotFoundException 
+    {
+	super(Class.forName("Élément"));
+	comp = cmp;
+    }
+
+    public boolean estVide() {
+      return longueur() == 0;
+    }
+
+    // recherche dichotomique
+    public Élément rechercher(Object clé) throws CléNonTrouvéeException {
+	if (longueur() > 0) {
+	    int gauche = 1,
+		droite = longueur();
+	    Élément x;
+	    do {
+		// gauche <= droite et forall k, 1 <= k <gauche, clé(ième(t,k))<c et
+		// forall k, droite < k <= longueur(t), clé(ième(t,k)) > c
+		int milieu = (gauche+droite) / 2;
+		x = (Élément) ième(milieu);
+		if (comp.supérieurOuÉgal(clé, x.clé())) gauche = milieu + 1;
+		if (comp.inférieurOuÉgal(clé, x.clé())) droite = milieu - 1;
+	    }
+	    while (gauche<=droite);
+	    // clé(ième(t,milieu)) = clé ou
+	    // forall k, 1< = k <= longueur(t), clé(ième(t,k)) ! = c}
+	    if (comp.égal(x.clé(), clé)) return (Élément) x;
+	}
+	throw new CléNonTrouvéeException();
+    }
+    
+    public void ajouter(Élément e) {
+	if (e.getClass() != typeDesÉléments)
+	    throw new TypeIncompatibleException();
+	// l'élément est bien du type de ceux de la liste
+	Object clé = e.clé();
+	if (! comp.comparable(clé))
+	    throw new CléIncomparableException();
+	if (longueur() == éléments.length) throw new ListePleineException();
+	int i = longueur() - 1;
+	while (i >= 0 && comp.supérieur(((Élément) éléments[i]).clé(), clé))
+	    // décaler l'élément d'une place vers la droite
+	    éléments[i+1] = éléments[i--];
+	// i + 1 est l'indice d'insertion de l'élément
+	éléments[i+1] = e;
+	lg++;
+    }
+    
+    public void supprimer(Object clé) throws CléNonTrouvéeException
+    {
+	if (! comp.comparable(clé))
+	    throw new CléIncomparableException();
+	int i = 0;
+	while (i < longueur() && comp.supérieur(clé, ((Élément) éléments[i]).clé()))
+	    i++;
+	// 
+	if (i == longueur() || comp.inférieur(clé, ((Élément) éléments[i]).clé()))
+	    throw new CléNonTrouvéeException();
+	// supprimer l'élément d'indice i
+	// c'est-à-dire décaler les élements de i+1 à longueur-1 vers la gauche
+	for (i++; i< longueur(); i++) 
+	    éléments[i-1] = éléments[i];
+	lg--;
+    }
+}
+
+/*************************************************************************/
+/**
+ * La classe ListeOrdonnéeChaînée implémente le type abstrait Table
+ * à l'aide d'une liste chaînée. Cette classe étend
+ * la classe ListeChaînée.
+ */
+
+public class ListeOrdonnéeChaînée extends ListeChaînée implements Table {
+    protected Comparable comp;
+
+    public ListeOrdonnéeChaînée(Comparable cmp)
+	throws ClassNotFoundException 
+    {
+	super(Class.forName("Élément"));
+	comp = cmp;
+    }
+
+    public boolean estVide() {
+      return longueur() == 0;
+    }
+
+    public Élément rechercher(Object clé) throws CléNonTrouvéeException {
+	if (! comp.comparable(clé))
+	    throw new CléIncomparableException();
+	// les clés sont comparables
+	Noeud q = tête;
+	while (q != null)
+	    if (comp.inférieur(((Élément) q.valeur()).clé(), clé))
+		q = q.noeudSuivant();
+	    else
+		if (comp.égal(((Élément) q.valeur()).clé(), clé))
+		    return (Élément) q.valeur();
+		else 
+		    // clé(élt courant) > clé
+		    throw new CléNonTrouvéeException();
+	// on est en fin de liste
+	throw new CléNonTrouvéeException();
+    }
+    
+    public void ajouter(Élément e) {
+	if (e.getClass() != typeDesÉléments)
+	    throw new TypeIncompatibleException();
+	// l'élément est bien du type de ceux de la liste
+	Object clé = e.clé();
+	if (! comp.comparable(clé))
+	    throw new CléIncomparableException();
+
+	Noeud q = tête, p = null;
+	while (q != null && 
+	       comp.inférieur(((Élément) q.valeur()).clé(), clé)) { 
+	    // clé >= noeud courant
+	    p = q; 
+	    q = q.noeudSuivant();
+	}
+	// clé <= noeud courant
+	Noeud n = new Noeud(e);
+	if (p == null) { // ajouter en tête de file
+	    n.suivant(tête);
+	    tête = n;
+	}
+	else { // ajouter le noeud n après le noeud p
+	    n.suivant(p.suivant);
+	    p.suivant(n);
+	}
+	lg++;
+    }
+
+    public void supprimer(Object clé) throws CléNonTrouvéeException
+    {
+	if (! comp.comparable(clé))
+	    throw new CléIncomparableException();
+
+	Noeud q = tête, p = null;
+	
+	while (q != null && 
+	       comp.inférieur(((Élément) q.valeur()).clé(), clé)) {
+	    // clé >= noeud courant
+	    p = q; 
+	    q = q.noeudSuivant();
+	}
+	// clé <= noeud courant
+	if (! comp.égal(((Élément) q.valeur()).clé(), clé))
+	    throw new CléNonTrouvéeException();
+	// q désigne lélément à supprimer
+	if (p == null) // supprimer le noeud de tête
+	    tête = tête.noeudSuivant();
+	else  // supprimer le noeud q
+	    p.suivant(q.suivant());
+	lg--;
+    }
+}
+
+
+
+Exercice 21.7
+=============
+
+Algorithme rechercher(t, c)
+{ Rôle: recherche par interpolation dans la table t ordonnée l'élément de clé x }
+
+   gauche <- 1
+   droite <- longueur(t)
+   {l'espace de recherche est au départ toute la table}
+   répéter
+      milieu <- gauche + ((c-clé(ième(t,gauche)))*((droite-gauche)
+			  div (clé(ième(t,droite))-clé(ième(t,gauche)))))
+      x <- ième(t,milieu)
+      si c=clé(x) alors { on a trouvé la clé c } rendre x
+       sinon
+	 si c<clé(x) alors droite  <- milieu-1
+	   sinon { c>clé(x) } gauche <- milieu+1
+         finsi
+      finsi
+    jusque (gauche>droite)
+    { la clé c n'a pas été trouvée dans la table }
+|
+|-----------------
+
+La complexité de cet algorithme est de l'ordre de log2(log2 n) lorsque les
+clés sont réparties de façon unforme sur la table. La recherche par
+interpolation est donc plus efficace que la recherche dichotomique, en
+particulier lorsque le nombre d'éléments dans la table est important. Notez
+toutefois que cette méthode n'est praticable qu'avec des clés sur
+lesquelles des calculs de distance (la différence de deux clés) sont
+possibles. Ceci restreint donc son champ d'application.
+
+
+
+Exercice 21.9
+=============
+
+Algorithme rechercher(a, c)
+{ Rôle : recherche de la clé c dans l'arbre binaire ordonné a }
+{ Note : la recherche est faite de façon itérative }
+
+
+   q <- a
+   tantque q != arbrevide faire
+      si c<clé(racine(q)) alors q <- sag(q)
+       sinon
+         si c>clé(racine(q)) alors q <- sad(q)
+         sinon { la clé est trouvée } rendre valeur(racine(q))
+   fintantque
+   { la clé c n'appartient pas à l'arbre }
+
+
+
+Exercice 22.1
+=============
+
+Une façon de procéder consiste à lire les n valeurs de la suite et de les
+placer dans un tableau, puis de construire un tas dont la racine est la
+plus grande valeur. Il suffit ensuite de faire k suppressions dans le tas
+pour obtenir le résultat rechercher.
+
+La construction du tas est de l'ordre de O(n), alors que chaque suppression 
+est de l'ordre de O(log2 n). La complexité totale est alors O(n + klog2 n).
+Dans le cas paraticulier de k=n/2, c'est-à-dire celui de la recherche de
+la médiane, la complexité est de l'ordre de O(nlog2 n).
+
+Notez que dans le cas particulier où k=n, on procède à un tri complet
+des valeur, voir le tri en tas (heapsort).
+
+
+
+Exercice 23.1
+=============
+
+/**
+ *  Rôle : la méthode estTriée retroune vrai si
+ *         la liste courante est ordonnée de façon croissante,
+ *         et faux sinon.
+ *
+ *  Antécédent : c contient les opérateurs de comparaison
+ */
+public boolean estTriée(Comparateur<C> c) {
+    if (this.longueur()==0) return true;
+    Iterator<Élément<V,C>> énum = this.iterator();
+    Élément<V,C> x = énum.next();
+    while (énum.hasNext()) {
+        Élément<V,C> suiv = énum.next();
+        if (c.supérieur(x.clé(), suiv.clé())) return false;
+        x =suiv;
+    }
+    return true;
+}
+
+/**
+ *  Rôle : trie la liste courante en un temps non borné.
+ *
+ */
+public void triIdiot(Comparateur<C> c) {
+    // générateur de nombres aléaoires
+    Random rand = new  Random();
+    while (!this.estTriée(c)) {
+        // la liste n'est pas triée =>
+        //    tirer 2 indices au hasard et
+        //    échanger les 2 éléments associés
+        this.échanger((Math.abs(rand.nextInt()) % this.longueur())+1,
+                   (Math.abs(rand.nextInt()) % this.longueur())+1);
+    }
+}
+
+Sur un pentium I7 à 2.60 MGHz, Cette méthode trie une liste de 14 éléments
+en 8 secondes en moyenne. Au delà de 15 éléments, les temps de
+tri sont trop importants.
+
+
+
+Exercice 23.6
+=============
+
+/**
+ * Rôle : recherche de la médiane d'une liste de valeurs.
+ *        La méthode est basée sur l'algorithme du tri rapide
+ */
+public Élément<V,C> médiane(Comparateur<C> c) {
+    return médiane(this, c, (1+this.longueur())/2, 1, this.longueur());
+}
+
+private Élément<V,C> médiane(Liste<Élément<V,C>> l, Comparateur<C> c,
+                             int k, int gauche, int droite) {
+    int i=gauche, j=droite;
+    C pivot = l.ième(k).clé();
+    do {
+        while (c.inférieur(l.ième(i).clé(), pivot)) i++;
+        while (c.supérieur(l.ième(j).clé(), pivot)) j--;
+        if  (i<=j) {
+            l.échanger(i,j);
+            i++; j--;
+        }
+        // clé(ième(t,gauche)).. clé(ième(t,i-1))   <= pivot
+        // clé(ième(t,j+1))   .. clé(ième(t,droite)) >= pivot
+    }
+    while (i<=j);
+    // Inv et (clé(ième(t,j+1))..clé(ième([t,i-1)) = pivot
+    if (k<j) return médiane(l, c, k, gauche, j-1);
+    else
+        if (k>i) return médiane(l, c, k, i+1, droite);
+    // j <= k <= i ==> ième(k) est la médiane
+    return l.ième(k);
+}
+
+
+
+Exercice 24.2
+=============
+
+ // recherche des plus courts chemins entre tous 
+    // les sommets du graphe this et le sommet source s
+    public <S> Ensemble<Élément<S,Integer>> algoPrim(GrapheValué<S, Integer> g, S s) 
+    {
+	final int INFINI = Integer.MAX_VALUE;
+	Ensemble<Élément<S,Integer>> 
+	    E = new EnsembleListe<Élément<S,Integer>>(new ComparateurDeCléEntière()),
+	    Sol = new EnsembleListe<Élément<S,Integer>>(new ComparateurDeCléEntière());
+	// initialiser l'ensemble E
+	E.ajouter(new Élément<S,Integer>(s, 0));
+	for (S x : g)
+	    if (x != s)
+		E.ajouter(new Élément<S,Integer>(x, INFINI));
+	// rechercher les plus courts chemins
+	while (!E.vide()) {
+	    // choisir celui qui possède la distance minimum
+	    // par rapport à s dans E
+	    Élément<S,Integer> m = E.supprimerMin();
+	    Sol.ajouter(m);
+	    // pour tout sommet x de E qui possède un arc avec m
+	    for (Élément<S,Integer> x : E)
+		if (g.arc(sommet(m),sommet(x))) {
+		    int d = g.valeurArête(sommet(m),sommet(x));
+		    if (d < dist(x))
+		       changerDist(x,d);
+		}
+	}
+	return Sol;
+    }
+
+
+
+Exercice 25.5
+=============
+
+/**
+ * Cette classe définit un ensemble d'entiers (tirés aléatoirement) et
+ * offre les deux méthodes chercherSE ou chercherTousLesSE pour chercher,
+ * respectivement, 1 sous-ensemble et TOUS les sous-ensembles dont la somme
+ * des éléments sont égales à une valeur m donnée en paramètre.
+ *
+ * Algorithmes utilisés : algorithme de rétro-parcours. 
+ *
+ * @author vg@unice.fr
+ *
+ */
+import java.util.Random;
+
+public class SommeSE {
+    // valeur entière maximale de l'ensemble
+    private static final int VALEURMAX = 20;
+    // générateur aléatoire
+    private Random rand;
+    // l'ensemble des entiers
+    private int []ensEntiers;
+    //  utilisés[i]=vrai => ensEntiers[i] est dans le sous-ensemble solution
+    //  utilisés[i]=faux => ensEntiers[i] n'est pas dans le sous-ensemble solution 
+    private boolean [] utilisés;
+
+    /** Rôle : initialise aléatoirement l'ensemble */
+    public SommeSE(int n) {
+	if (n<1) {
+	    System.err.println("La taille de l'ensemble doit être >= 0");
+	    System.exit(1);
+	}
+	rand = new Random();
+	ensEntiers = new  int[n];
+	for (int i=0; i<n; i++)
+	    ensEntiers[i] = rand.nextInt(VALEURMAX); 
+    }
+
+    public SommeSE(int [] ens) {
+	ensEntiers = ens;
+    }
+
+    public String toString() {
+	String s = "{ ";
+	for (int i=0; i<ensEntiers.length; i++)
+	    s+=ensEntiers[i]+ " ";
+	return s + "}";
+    }
+
+    /* Rôle : retourne sous forme d'une String le sous-ensemble
+     *        d'entiers solution du problème
+     */
+    private String solution() {
+	String s = "--> { ";
+	for (int i=0; i<utilisés.length; i++)
+	    if (utilisés[i]) 
+		s+=ensEntiers[i]+ " ";
+	return s + "}";
+    }
+
+    /**
+     * Rôle : recherche UN sous-ensemble de l'ensemble d'entiers
+     *        courant dont la somme des élément est égale à m  
+     * 
+     */
+    public void chercherUnSE(int m) {
+	utilisés = new boolean[ensEntiers.length];
+	System.out.println("Somme = " + m);
+	System.out.println(essayer(0, m, 0) ? solution() : "Pas de solution");
+    }
+
+    /**
+     * Rôle : recherche  TOUS les sous-ensembles de l'ensemble d'entiers
+     *        courant dont la somme des élément est égale à m  
+     * 
+     */
+    public void chercherTousLesSE(int m) {
+	utilisés = new boolean[ensEntiers.length];
+	System.out.println("Somme = " + m);
+	essayerTout(0, m, 0);
+    }
+
+    /* 
+     * Rôle : vérifie si l'entier proposé à 
+     *        l'étape i est valide ou pas 
+     */
+    private boolean vérifier(int sommePartielle, int i, int sommeFinale) {
+	return utilisés[i] ? false // entier déjà utilisé
+	    : sommePartielle+ensEntiers[i] <= sommeFinale;
+    }
+
+    /*
+     *    Rôle : essaye d'étendre la solution partielle à l'étape i
+     *           Retourne vrai si une solution est trouvée
+     */
+    private boolean essayer(int sommePartielle, int sommeFinale, int i) {
+	boolean correcte = false;
+	for (int k=i; k<ensEntiers.length && !correcte; k++) {
+	    if (vérifier(sommePartielle, k, sommeFinale)) {
+		// sommePartielle+ensEntiers[k] <= sommeFinale
+		// enregistrer le candidat
+		utilisés[k] = true;
+		if (sommePartielle+ensEntiers[k] != sommeFinale) {
+		    // essayer à l'étape suivante
+		    correcte=essayer(sommePartielle+ensEntiers[k],sommeFinale, k+1);
+		    if (!correcte)
+			// annuler le choix du candidat k
+			utilisés[k] = false;
+		}
+		else
+		    // on a trouvé une solution
+		    correcte=true;
+	    }
+	}
+	return correcte;
+    }
+
+    /*
+     *    Rôle : essaye d'étendre la solution partielle à l'étape i
+     *           Affiche toutes les solutions possibles.
+     */
+    private void essayerTout(int sommePartielle, int sommeFinale, int i) {
+	for (int k=i; k<ensEntiers.length; k++)
+	    if (vérifier(sommePartielle, k, sommeFinale)) {
+		// sommePartielle+ensEntiers[k] <= sommeFinale
+		// enregistrer le candidat
+		utilisés[k] = true;
+		if (sommePartielle+ensEntiers[k] != sommeFinale)
+		    // essayer à l'étape suivante
+		    essayerTout(sommePartielle+ensEntiers[k],sommeFinale, k+1);
+		else 
+		    // on a trouvé une solution
+		    System.out.println(solution());
+		// annuler le choix du candidat
+		utilisés[k] = false;
+	    }
+    }
+} // fin classe SommeSE
+
+
+
+Exercice 26.8
+=============
+
+import java.awt.event.*;
+import java.awt.*;
+import javax.swing.*;
+import java.util.Random;
+
+public class Couleurs  extends JFrame implements ActionListener {
+    private static final Random r = new Random();
+    private JButton incr;
+    private JButton decr;
+    private JPanel pcoul;
+    private int rgb = r.nextInt();
+
+
+    public Couleurs() {
+        getContentPane().setLayout(new FlowLayout());
+	// le panel pour visualiser le compteur en couleur
+	pcoul = new JPanel();
+	pcoul.setPreferredSize(new Dimension(25,25));
+	pcoul.setBackground(new Color(rgb));
+	// les boutons + et -
+        decr = new JButton("-");
+        decr.addActionListener(this);
+	incr = new JButton("+");
+        incr.addActionListener(this);
+	// ajouter les boutons et le Panel
+	getContentPane().add(decr);
+        getContentPane().add(pcoul);
+        getContentPane().add(incr);
+	// dimensionner et rendre visible la fenêtre
+        pack();
+        setVisible(true);
+    }
+
+    /*
+     * Rôle : 
+     *
+     */
+    @Override
+    public void actionPerformed(ActionEvent e) {
+	rgb = (e.getSource() == incr) ? rgb+1 : rgb-1;
+	pcoul.setBackground(new Color(rgb));
+    }
+    public static void main(String [] args) {
+        new Couleurs();
+    }
+}
+
+
+
+Exercice 26.9
+=============
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import java.text.*;
+    
+public class Carré extends JPanel  implements MouseListener { 
+    private int xA, yA, xB, yB; // coordonnées des 2 pts
+    private int nbPoints;       // nb de pts dans le Carré
+    private int size;           // longueur du coté du Carré
+	
+    public Carré(int size) {
+	this.nbPoints = 0;
+	this.size = size;
+	this.setPreferredSize(new Dimension(size, size));
+	addMouseListener(this);
+    }
+
+    /*
+     * Rôle : calcule la distance entre les pts (xA,yA) et (xB,yB)
+     *        et l'affiche dans le coint sud-ouest du Carré courant
+     */
+    private String distance(int xA, int yA, int xB, int yB) {
+	double d = Math.sqrt((xB-xA)*(xB-xA)+(yB-yA)*(yB-yA));
+	NumberFormat df = new DecimalFormat("#.##");
+	return df.format(d); 
+    }
+
+    /**
+     * Rôle : affiche/dessine le contenu du Carré
+     */
+    public void paintComponent(Graphics g) {
+	g.setColor(Color.blue);
+	switch (this.nbPoints) {
+	  case 1 : // dessiner le 1er point
+	           g.fillOval(xA, yA, 8, 8); break;
+   	  case 2:  // dessiner le 2ème point
+                   g.fillOval(xB, yB, 8, 8);
+	           g.setColor(Color.red);
+		   // tracer la ligne qui les relie
+		   g.drawLine(xA+4, yA+4, xB+4, yB+4);
+		   // écrire la distance entre les 2 points
+		   g.drawString(distance(xA, yA, xB, yB), 0,  this.size);
+	           break;
+	  default:
+	      // effacer le carré
+	      g.clearRect(0, 0, this.size, this.size);
+	}
+    }
+
+    /**
+     *  Rôle : callback lorsqu'un bouton de souris est enfoncé
+     *         Mémorise les coordonnées du point sélectionné dans le
+     *         Carré
+     */
+    public void mousePressed(MouseEvent e) {
+	switch (++this.nbPoints) {
+	case 1 : xA = e.getX(); yA = e.getY();
+	    break;
+	case 2 : xB = e.getX(); yB = e.getY();
+	    break;
+	case 3 : this.nbPoints=0;
+	}
+	// redessiner le Carré
+	repaint();
+    }
+
+    public void mouseExited(MouseEvent me)   { /* rien */ }
+    public void mouseReleased(MouseEvent me) { /* rien */ }
+    public void mouseEntered(MouseEvent me)  { /* rien */ }
+    public void mouseClicked(MouseEvent me)  { /* rien */ }
+} // fin classe Carré
+
+import javax.swing.*;
+
+public class Distance extends JFrame {
+    public Distance(int coté) {
+	setTitle("Distance");
+	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	getContentPane().add(new Carré(coté));
+	pack();
+	setVisible(true);
+    }
+
+    public static void main(String [] args) {
+	new Distance(200);
+    }
+}
+
