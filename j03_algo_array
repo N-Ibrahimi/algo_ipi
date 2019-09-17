@@ -111,7 +111,7 @@ debpro
     
     tant que i <langueur(array[]) faire 
       si array[i] = number 
-      retourn array[i]
+      retourn i
       finsi 
       i:=i+1
       finfaire 
@@ -120,7 +120,7 @@ debpro
 finproc 
 
 
-exo 06 ############################################    
+exo 08 ############################################    
 
 
 procédure trié
@@ -140,6 +140,21 @@ debpro
       retourn vrai 
     finfonc
 finproc 
+
+
+debfon 
+i:=0;
+pour i< langueur(array) faire 
+    si array[i] > array [i+1]
+        retourn vrai 
+        finsi 
+        retourn faux
+ finfonc 
+
+
+
+
+exo 09 ############################################    
 
 
 
