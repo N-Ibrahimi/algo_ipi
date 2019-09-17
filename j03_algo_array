@@ -131,7 +131,7 @@ debpro
    
     debfon (array): booléen 
         i:=0;
-        tant que i <langueur(array)-1 faire 
+        tant que i <langueur(array) faire 
               si array[i] > array[i+1] 
               retourn faux
               finsi 
@@ -144,7 +144,7 @@ finproc
 
 debfon 
 i:=0;
-pour i< langueur(array) faire 
+pour i< langueur(array)-1 faire 
     si array[i] > array [i+1]
         retourn vrai 
         finsi 
