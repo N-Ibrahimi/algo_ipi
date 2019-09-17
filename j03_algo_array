@@ -171,16 +171,15 @@ exo 09 ############################################
                 finsi 
            i:= i+1
            finfaire 
-           retourne faux 
       sinon 
       i:= mileu  
         tantque i< longueur(array) 
                 si chiffre = array[i] alors 
                 retourn vrai 
                 finsi 
-               i:=i+1 
-               finfaire 
-         finsi 
+           i:=i+1 
+           finfaire 
+      finsi 
          retourne faux 
     finfon 
         
