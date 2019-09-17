@@ -145,6 +145,7 @@ longueur_02:= longueur(phrase:chaine) : entier
 					si phrase_02[index_02+i] = phrase_01[index_01+i] alors 
 						i:= i+1; 
 					finsi 
+					retourn vrai 
 				finfaire
 			 finsi
 			 index_02:= index+1; 
