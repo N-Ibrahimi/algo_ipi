@@ -1,0 +1,207 @@
+exo 02 ############################################
+
+procédure la sommes des élements 
+
+debpro 
+    number,somme, i:entier; 
+    array:entier[]; 
+
+debfon (array[]): entier 
+    somme:=0;
+    i:=0;
+    
+    tant que i <langueur(array) faire 
+    somme= somme + array[i]
+    i:=i+1
+    finfaire 
+    retourn somme
+finfon 
+
+
+debfon (array[]): entier 
+    somme:=0;
+    i:=0;
+    
+    tant que i < lagueur(array) faire 
+    somme=somme+array[i];
+    i:=i+2
+    finfaire 
+    retourne somme 
+finpro
+
+
+exo 03 ############################################
+
+procédure les caractère 
+
+debpro 
+    count, i:entier; 
+    array[]:chaine; 
+    caractère:chaine; 
+    
+
+  debfon (array[], caractère): entier 
+    count:=0;
+    i:=0;
+    tant que i <langueur(array[]) faire 
+        si caractère = array[i] alors 
+        count:=count+1
+        finsi 
+        i:=i+1
+    finfaire 
+    retourn count
+    
+ finfon 
+    
+    
+exo 04 ############################################
+
+procédure les caractère 
+
+debpro 
+    number,max, i:entier; 
+    array[]:entier; 
+    
+
+    debfon (array[]): entier 
+    i:=0;
+    max:=0; 
+    
+    tant que i <langueur(array[]) faire 
+      si array[i] > max
+      max:= arary[i]
+      finsi 
+      i:=i+1
+    finfonc
+finproc 
+
+exo 05 ############################################
+
+procédure valeur existe
+
+debpro 
+    i,number:entier; 
+    array[]:entier; 
+    
+
+    debfon (array[], number): booléen 
+    i:=0;
+    
+    tant que i <langueur(array[]) faire 
+      si array[i] = number 
+      retourn vrai 
+      finsi 
+      i=:i+1
+      retourn faux 
+    finfonc
+finproc 
+
+exo 06 ############################################    
+
+
+procédure valeur existe
+
+debpro 
+    i,number:entier; 
+    array[]:entier; 
+    
+
+    debfon (array[], number): entier 
+    i:=0;
+    
+    tant que i <langueur(array[]) faire 
+      si array[i] = number 
+      retourn array[i]
+      finsi 
+      i:=i+1
+      finfaire 
+      retourn -1
+    finfonc
+finproc 
+
+
+exo 06 ############################################    
+
+
+procédure trié
+
+debpro 
+    i,number:entier; 
+    array[]:entier; 
+   
+    debfon (array[]): booléen 
+    i:=0;
+    tant que i <langueur(array[])-1 faire 
+      si array[i] > array[i+1] 
+      retourn faux
+      finsi 
+      i:=i+1
+      finfaire 
+      retourn vrai 
+    finfonc
+finproc 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
