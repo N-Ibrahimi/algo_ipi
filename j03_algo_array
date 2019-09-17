@@ -156,7 +156,41 @@ pour i< langueur(array) faire
 
 exo 09 ############################################    
 
-
+ procédure trouver le nombre 
+    array:entier[];
+    i,chiffre:entier; 
+    milieu := longueur(array)/2 
+    valeur_milieu:= array[milieu] 
+    
+    débfon test(array, chiffre): booléen 
+    si chiffre < valeur_milieu
+     i:=0
+        tantque i < milieu 
+                si chiffre = array[i] alors 
+                retourn vrai 
+                finsi 
+           i:= i+1
+           finfaire 
+           retourne faux 
+      sinon 
+      i:= mileu  
+        tantque i< longueur(array) 
+                si chiffre = array[i] alors 
+                retourn vrai 
+                finsi 
+               i:=i+1 
+               finfaire 
+         finsi 
+         retourne faux 
+    finfon 
+        
+ exo 10 ############################################          
+        
+ 
+        
+      
+           
+    
 
 
 
