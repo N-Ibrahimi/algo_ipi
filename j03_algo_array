@@ -167,7 +167,7 @@ exo 09 ############################################
      i:=0
         tantque i < milieu 
                 si chiffre = array[i] alors 
-                retourn vrai 
+                retourn vrai 1/2  
                 finsi 
            i:= i+1
            finfaire 
@@ -175,12 +175,12 @@ exo 09 ############################################
       i:= mileu  
         tantque i< longueur(array) 
                 si chiffre = array[i] alors 
-                retourn vrai 
+                retourn vrai 2/2 
                 finsi 
            i:=i+1 
            finfaire 
       finsi 
-         retourne faux 
+         retourne faux -1
     finfon 
         
  exo 10 ############################################          
