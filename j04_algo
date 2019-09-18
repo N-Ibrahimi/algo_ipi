@@ -7,20 +7,50 @@ débproc
 finproc
 
 
-i:=0
 affiche_line(long_v); 
-tantque i< long_v faire 
-  j:=0 	
-  si i=0 affiche("|");
-     tantque j< longueur(v[i]) faire 
-      affiche(v[i][j]) 
-      j:=j+1
-        si j%3=0 alors 
-        affiche("|")
-        finsi 
+i:=0
+tantque i<long_v faire 
+  si i=0 faire 
+    affiche("|");
+  finsi 
+  j:=0; 
+     tantque j<longueur(v[i]) faire 
+        si j=0 alros 
+          affiche("-") 
+        sinon 
+          affiche(v[i][j]) 
+          j:=j+1
+            si j%3=0 alors 
+            affiche("|")
+            finsi
+        finsi
      finfire 
-  affiche('|\n')
+  affiche('\n')
   i:=i+1
   si i%3=0 alors 
     affiche("-") 
+  finsi
 finfaire 
+
+
+verification(nb:entier, x:entier, y:entier): booléen
+k:=0; 
+tantque k:=0 <long_v[x] faire 
+   si v[x][k]= nb 
+   retourn faux 
+   sinon si v[k][y]= nb alors 
+   retourn faux
+   sinon 
+      position_x=x/3
+      position_y=y/3
+      pour u:=0 < 3 faire 
+        w:=0
+        si v[(postion_y*3 + w)]([position_x*3)+u] = nb alors 
+          retourn faux 
+        finsi 
+        w:=w+1
+   finsi 
+   k:=k+1;
+finfaire 
+retourn vrai 
+
