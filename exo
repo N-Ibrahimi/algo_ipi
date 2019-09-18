@@ -112,7 +112,7 @@ Question 06 ####################################################################
 
 procédure maximum
 débproc 
-max,nb,i:entier; // imaginons que l'utilisateur saisit un entier positif; 
+max,nb,i,index:entier; // imaginons que l'utilisateur saisit un entier positif; 
 liste_nombre:entier[];
 max:=0;
 
@@ -126,16 +126,20 @@ tantque nb=!0 faire
   i:=i+1;
 finfaire 
 
-trouver_max(liste_number);
+affiche("la position du plus grand est " + trouver_max(liste_number));
 
 fonction trouver_max(v:entier[]): entier
 débfonc 
-pour i:=0 à langueur de liste_number faire 
-     si liste_number[i] > max alors 
-     max:=liste_number[i]
-     finsi 
-     retourn 
-     
+   i:=0
+   tantque i<langueur(liste_number) faire 
+       si liste_number[i] > max alors 
+       max:=liste_number[i]
+       index:=i
+       finsi
+       i:= i+1 
+   finfaire  
+       retourn index
+ finfonc 
 
 
 
