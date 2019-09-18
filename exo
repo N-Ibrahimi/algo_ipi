@@ -73,9 +73,8 @@ procédure_tableDeMulitiplication
 
   affiche(" saisir le chiffre dont vous voulez avoir ses mulitiples") 
   lit("nb");
-    tant que i <=10 faire
+    pour i:=1 à 10 faire
         affiche(nb*i);
-        i:=i+1
     finfaire
   finproc 
 
@@ -141,6 +140,7 @@ débfonc
        retourn index
  finfonc 
 
+Question 07 #############################################################################
 
 
  
