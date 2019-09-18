@@ -44,11 +44,14 @@ tantque k:=0 <long_v[x] faire
       position_x=x/3
       position_y=y/3
       pour u:=0 < 3 faire 
-        w:=0
-        si v[(postion_y*3 + w)]([position_x*3)+u] = nb alors 
-          retourn faux 
-        finsi 
-        w:=w+1
+            w:=0
+            tant que w <3 faire 
+              si v[(postion_y*3 + w)]([position_x*3)+u] = nb alors 
+              retourn faux 
+              finsi 
+            w:=w+1
+            fin faire 
+      finfaire 
    finsi 
    k:=k+1;
 finfaire 
