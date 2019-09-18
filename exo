@@ -1,0 +1,133 @@
+Question 01 #############################################################################
+
+procédure leMaximum
+  débpro
+    num_1,num_2:entier ou réel; 
+    //nous pourrions également définir leur type comme réel, ce qui est plus préférable. 
+    //imaginons que les saisis sont valides et correctes 
+   
+    affich("entrez le 1er chiffre");
+    lit(num_1); 
+
+    affich("entrez le 2ème chiffre");
+    lit(num_2); 
+
+    affiche("parmi ces deux chiffre "+ trouver_max(num_1, num_2)+ "est le maximum"); 
+
+    fonction trouver_max(nb_1:entier,nb_2:entier):entier 
+      débfonc 
+        si nb_1 > nb_2 alors 
+        retourn nb_1
+        finsi 
+      retourn nb_2 
+    finfonc
+    finproc 
+
+Question 02 #############################################################################
+
+procédure affranchissement_lettre
+  débproc
+    coût:réel;
+    poids:entier; 
+    poids:=0; 
+    // verifiez que le poids n'est pas zero ou une valeur négative
+      tantque poids <= 0 faire 
+        affiche("entrez le poids de votre colie en gramme") 
+        lit(poids); 
+      finfaire
+    affiche("pour cette lettre le frais d'affranchissement sera " + calcule_franchisse(poids) + " euros"); 
+
+    fonction calcule_franchisse(poids:entier): réel 
+    débfonc
+      si poids>= 100 alors 
+        coût:= 3.20 
+      sinon si poids<100 et poids>=20 alors 
+        coût:= 1.60 
+      sinon // c'est à dire si poids>0 et poids<20; car nous avons déja verifié que la valeur ne soit pas négative. 
+        coût:= 0.80 
+      finsi 
+    finfonc
+  
+  
+Question 03 #############################################################################
+
+procédure counter_cinq
+débproc
+  nb,i:entier;
+  i:=1;
+  
+  affiche("entrez un chiffre pour que; je vous donne les 5 suites") 
+  lit(nb)
+  tantque i<=5 faire 
+    affiche(nb + i);
+    i:=i+1
+  finfaire 
+finproc 
+
+Question 04 #############################################################################
+
+procédure_tableDeMulitiplication 
+  débproc 
+  nb,i:entier; 
+  i:=1
+
+  affiche(" saisir le chiffre dont vous voulez avoir ses mulitiples") 
+  lit("nb");
+    tant que i <=10 faire
+        affiche(nb*i);
+        i:=i+1
+    finfaire
+  finproc 
+
+Question 05 #############################################################################
+
+procédure triangle_rectangle
+
+débproc
+nb1,nb2,nb3:entier;
+nb1:=0;
+  tantque nb1<=0 ou nb2<=0 ou nb3<=0  faire 
+    affiche("entrez les mesures de a, b et c")
+    lit(nb1,nb2,nb3) 
+  finfaire 
+ si triangle_rectangle(nb1,nb2,nb3)=true alors 
+  affiche("c\'est un triangle rectangle")
+ finsi 
+ affiche("ce n\'est un triangle rectangle")
+finproc 
+
+fonction triangle_rectangle(a, b, c : entier) : booléen
+debfonc
+    si (a*a)=(b*b)+(c*c) alors 
+     retourn true 
+    sinon si (b*b)=(a*a)+(c*c) alors 
+     retourn true
+    sinon si (c*c)=(a*a)+(b*b) alors 
+     retourn true
+    finsi 
+    retourn faux 
+finfonc 
+
+Question 06 #############################################################################
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+    
+    
+    
