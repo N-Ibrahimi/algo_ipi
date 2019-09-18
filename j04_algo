@@ -1,0 +1,26 @@
+long_v, i, j :entier; 
+long_v=longueur(v[0]);
+
+affiche_line(fois:entier)
+débproc
+  affiche('-' * fois)
+finproc
+
+
+i:=0
+affiche_line(long_v); 
+tantque i< long_v faire 
+  j:=0 	
+  si i=0 affiche("|");
+     tantque j< longueur(v[i]) faire 
+      affiche(v[i][j]) 
+      j:=j+1
+        si j%3=0 alors 
+        affiche("|")
+        finsi 
+     finfire 
+  affiche('|\n')
+  i:=i+1
+  si i%3=0 alors 
+    affiche("-") 
+finfaire 
