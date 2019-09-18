@@ -110,8 +110,35 @@ finfonc
 
 Question 06 #############################################################################
 
- 
- 
+procédure maximum
+débproc 
+max,nb,i:entier; // imaginons que l'utilisateur saisit un entier positif; 
+liste_nombre:entier[];
+max:=0;
+
+affiche("sisissez vos nombre pour trouver la position du plus grand et 0 pour fermer la liste et  lançer le programme");
+
+tantque nb=!0 faire
+  i:=0
+  Affiche("saisissez un nombre")
+  lit(nb)
+  liste_number[i]=:nb
+  i:=i+1;
+finfaire 
+
+trouver_max(liste_number);
+
+fonction trouver_max(v:entier[]): entier
+débfonc 
+pour i:=0 à langueur de liste_number faire 
+     si liste_number[i] > max alors 
+     max:=liste_number[i]
+     finsi 
+     retourn 
+     
+
+
+
  
  
  
