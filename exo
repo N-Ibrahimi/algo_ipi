@@ -74,7 +74,7 @@ procédure_tableDeMulitiplication
   affiche(" saisir le chiffre dont vous voulez avoir ses mulitiples") 
   lit("nb");
     pour i:=1 à 10 faire
-        affiche(nb*i);
+        affiche(nb "*" i + "=" nb*i);
     finfaire
   finproc 
 
@@ -113,19 +113,19 @@ procédure maximum
 débproc 
 max,nb,i,index:entier; // imaginons que l'utilisateur saisit un entier positif; 
 liste_nombre:entier[];
+nb:=1; // valeur 1 parce que la condition pour la boucle c'est que nb ne soit pas zero (le chiffre saisi par utilisateur, donc pour démarer le programme, j'ai mis la valeur un qui sera affécté dans la boucle et que n'a pas d'effet sur le resultat.
 max:=0;
+i:=0;
 
 affiche("sisissez vos nombre pour trouver la position du plus grand et 0 pour fermer la liste et  lançer le programme");
 
-tantque nb=!0 faire
-  i:=0
+tantque nb!= 0 faire // tant que nb non 0 
   Affiche("saisissez un nombre")
   lit(nb)
   liste_number[i]=:nb
   i:=i+1;
 finfaire 
-
-affiche("la position du plus grand est " + trouver_max(liste_number));
+affiche("la position du plus grand est " + trouver_max(liste_number)+"ème");
 
 fonction trouver_max(v:entier[]): entier
 débfonc 
@@ -139,6 +139,25 @@ débfonc
    finfaire  
        retourn index
  finfonc 
+ 
+ verison simplifiée ***
+ 
+ i,max,index:entier;
+ i:=1;
+ max:=0;
+ index:=0;
+ 
+ tantque i!=0 faire 
+    affiche("entrez le numbero => ")
+    lit(nb)
+    i:=i+1  // on peut accrémenter le i pour commencer à compter du un au lieu de zero. 
+      si nb> max alors 
+        max:= nb 
+        index:=i
+      finsi 
+ finfaire
+ 
+ affiche(" la position du plus grand est " + index + "ème")
 
 Question 07 #############################################################################
 
