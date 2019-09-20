@@ -140,7 +140,7 @@ débfonc
        retourn index
  finfonc 
  
- verison simplifiée ***
+ verison simplifiée ****************************
  
  i,max,index:entier;
  i:=1;
@@ -160,6 +160,53 @@ débfonc
  affiche(" la position du plus grand est " + index + "ème")
 
 Question 07 #############################################################################
+
+pricédure calcule de capital
+
+débpro 
+  capital:réel;
+  taux:réel; 
+  année:entier; 
+
+  affiche("entrez votre capital => ")
+    lit(capital)
+  affiche("etntrez le taux d'intérêt") 
+    lit(taux) 
+  affiche("etrez vous voulez placer votre aregent pour combien d'année?)
+    lit(année) 
+
+  capital(année,capital,taux) 
+
+  fonction capital (n : entier, c : réel, t : réel) : réel;
+  i:=0;
+  t:=t/100
+  tantque i<=année faire 
+            c:=c*(1+t)
+              affiche("Année " + i + ": ce capital est devenu" + c + "*" 1+i + = 1100 €)
+            i:i+1
+          finfaire 
+        
+        
+        
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
  
