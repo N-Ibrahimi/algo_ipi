@@ -21,7 +21,7 @@ procédure leMaximum
         finsi 
       retourn nb_2 
     finfonc
-    finproc 
+finproc 
 
 Question 02 #############################################################################
 
@@ -161,8 +161,7 @@ débfonc
 
 Question 07 #############################################################################
 
-pricédure calcule de capital
-
+procédure calcule de capital
 débpro 
   capital:réel;
   taux:réel; 
@@ -174,32 +173,66 @@ débpro
     lit(taux) 
   affiche("etrez vous voulez placer votre aregent pour combien d'année?)
     lit(année) 
-
   capital(année,capital,taux) 
 
   fonction capital (n : entier, c : réel, t : réel) : réel;
+  débfonc
   i:=0;
   t:=t/100
-  tantque i<=année faire 
+      tantque i<=année faire 
             c:=c*(1+t)
-              affiche("Année " + i + ": ce capital est devenu" + c + "*" 1+i + = 1100 €)
+             affiche("Année "+i+": ce capital est devenu "+c+" * "+1+i+"= "+"+c+" €")// vue que cette une fonction et que retourne une valeur ; nous pourrions ecrire " retourne c" pour qu'elle retourne le résultat final du calcule ( capital+intérêt pour le nombre d'année) sans afficher le résultat pour chaque année. 
             i:i+1
-          finfaire 
+      finfaire 
+   finfonc 
+finproc
+
+
+Question 08 #############################################################################
+
+type voiture = structure
+    immatriculation:chaine; 
+    année:entie; 
+    marque:chaine; 
+    modèle:chaine;
+    prix:réel;
+  fin; 
+  
+  auto:voiture;
+    autp.immatriculation:= "AW-817-XD"
+    auto.année:=2018;
+    auto.marque:="Citroën"; 
+    auto.modèle:="Berlingo";
+    auto.prix:25000;
         
         
-        
-        
-        
+ Question 09 #############################################################################   
 
 
+procédure choixModèle(v : voiture[], marque : chaîne, modèle : chaîne)
+i:=0
+  tantque i< longueur(v) faire 
+      si v[i].marque= marque et v[i].modèle=modèle faire 
+       affiche(" année => " + v[i].année+ " et prix=> " + v[i].prix ) 
+      finsi 
+      i:i+1
+  finfaire 
+  affiche(" ce modèle n'est pas enregistré dans notre basée de donnée") 
+finproc
 
 
+Question 10 ########################################################################## 
 
-
-
-
-
-
+choixPrix(v : voiture[]; prixInf : réel, prixSup : réel)
+i:=0
+  tantque i< longueur(v) faire 
+      si v[i].prix > prixInf et v[i].prix > prixSup
+       affiche(" année => " + v[i].année+ " et prix=> " + v[i].prix ) 
+      finsi 
+      i:i+1
+  finfaire 
+  affiche(" ce modèle n'est pas enregistré dans notre basée de donnée") 
+finproc
 
 
 
